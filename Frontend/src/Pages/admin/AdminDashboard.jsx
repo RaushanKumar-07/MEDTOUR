@@ -10,7 +10,7 @@ import {
 
 import StatCard from "../../Components/StatCard";
 import DoctorsTable from "../../Components/Dashboard/DoctorsTable";
-import QuickManagement from "../../Components/Dashboard/QuickManagement";
+
 
 
 const AdminDashboard = () => {
@@ -86,9 +86,6 @@ const AdminDashboard = () => {
           />
 
         </div>
-
-
-        <QuickManagement />
 
 
         <DoctorsTable />
