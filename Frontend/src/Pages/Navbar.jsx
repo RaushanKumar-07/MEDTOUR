@@ -92,7 +92,7 @@ const Navbar = ({
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="flex min-h-18 items-center px-4 sm:px-6 lg:min-h-22 lg:px-8 xl:px-10">
 
-        {/* Mobile Menu */}
+   
         <button
           type="button"
           onClick={onMenuClick}
@@ -102,7 +102,7 @@ const Navbar = ({
           <FiMenu />
         </button>
 
-        {/* Logo */}
+    
         <div className="flex min-w-0 shrink-0 items-center gap-2.5 sm:gap-3 lg:w-67.5 xl:w-75">
 
           <div className="flex h-10 w-10 items-center justify-center text-[#087D80] sm:h-11 sm:w-11">
@@ -121,7 +121,7 @@ const Navbar = ({
 
         </div>
 
-        {/* Navigation */}
+     
         <nav className="hidden flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-7">
 
           {navItems.map((item) => (
@@ -137,10 +137,10 @@ const Navbar = ({
 
         </nav>
 
-        {/* Right Section */}
+      
         <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
 
-          {/* Book Appointment */}
+        
           <button
             type="button"
             onClick={() => navigate("/book-appointment")}
@@ -157,7 +157,7 @@ const Navbar = ({
             </span>
           </button>
 
-          {/* Login */}
+  
           {!isLoggedIn && (
             <button
               type="button"
@@ -172,7 +172,7 @@ const Navbar = ({
             </button>
           )}
 
-          {/* Logged-in User */}
+       
           {isLoggedIn && (
             <Dropdown
               menu={{

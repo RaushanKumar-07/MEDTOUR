@@ -62,12 +62,12 @@ const Footer = () => {
   return (
     <footer className="bg-[#064B50] text-white">
 
-      {/* Main Footer */}
-      <div className="mx-auto max-w-[1500px] px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
+      
+      <div className="mx-auto max-w-375 px-5 py-12 sm:px-8 sm:py-14 lg:px-10 lg:py-16">
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
 
-          {/* Brand */}
+       
           <div className="sm:col-span-2 lg:col-span-1">
 
             <button
@@ -90,7 +90,7 @@ const Footer = () => {
               healthcare journey.
             </p>
 
-            {/* Social Icons */}
+           
             <div className="mt-6 flex items-center gap-3">
 
               <a
@@ -128,7 +128,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+     
           <div>
             <h3 className="mb-5 text-lg font-semibold">
               Quick Links
@@ -152,7 +152,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Patient Links */}
+      
           <div>
             <h3 className="mb-5 text-lg font-semibold">
               Patient Care
@@ -176,7 +176,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+       
           <div>
             <h3 className="mb-5 text-lg font-semibold">
               Contact Us
@@ -216,7 +216,7 @@ const Footer = () => {
 
             </div>
 
-            {/* Appointment CTA */}
+        
             <button
               type="button"
               onClick={() => navigate("/book-appointment")}
@@ -231,7 +231,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+  
       <div className="border-t border-white/10">
 
         <div className="mx-auto flex max-w-375 flex-col gap-4 px-5 py-5 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
