@@ -15,8 +15,8 @@ const DoctorCard = ({ doctor }) => {
   const handleBookAppointment = () => {
     navigate("/book-appointment", {
       state: {
-        doctorId: doctor?._id,
-        doctorName: doctor?.name,
+        doctorId: doctor?._id || doctor?.id,
+        doctorName: doctor?.name || "",
       },
     });
   };
@@ -34,13 +34,12 @@ const DoctorCard = ({ doctor }) => {
         transition-shadow
       "
     >
+
       {/* DOCTOR HEADER */}
 
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
 
         <div className="flex items-center gap-4 min-w-0">
-
-          {/* DOCTOR ICON */}
 
           <div
             className="
@@ -58,8 +57,6 @@ const DoctorCard = ({ doctor }) => {
           >
             <FaUserDoctor />
           </div>
-
-          {/* NAME */}
 
           <div className="min-w-0">
 
@@ -187,7 +184,7 @@ const DoctorCard = ({ doctor }) => {
       </div>
 
 
-      {/* BOOK APPOINTMENT */}
+      {/* BOOK APPOINTMENT BUTTON */}
 
       <div className="mt-6 pt-5 border-t border-gray-100">
 
@@ -196,7 +193,10 @@ const DoctorCard = ({ doctor }) => {
           size="large"
           icon={<FaCalendarCheck />}
           onClick={handleBookAppointment}
-          className="bg-[#087D80] hover:bg-[#06676A]"
+          className="
+            bg-[#087D80]
+            hover:bg-[#06676A]
+          "
         >
           Book Appointment
         </Button>
