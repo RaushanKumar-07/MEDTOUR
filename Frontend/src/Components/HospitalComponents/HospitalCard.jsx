@@ -1,7 +1,9 @@
 import React from "react";
 import { Rate, Button } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const HospitalCard = ({ hospital }) => {
+  const navigate = useNavigate();
   return (
     <div
       className="
@@ -138,7 +140,9 @@ const HospitalCard = ({ hospital }) => {
           <p className="text-lg font-bold text-teal-600 sm:text-xl lg:text-2xl">
             {hospital.price}
           </p>
-          <button className='my-2 px-5 py-2 text-white font-medium bg-green-800 border rounded-xl hover:bg-green-500'>Book Appointment</button>
+          <button
+          onClick ={() => navigate("/book-appointment")}
+           className='my-2 px-5 py-2 text-white font-medium bg-green-800 border rounded-xl hover:bg-green-500'>Book Appointment</button>
         </div>
       </div>
     </div>

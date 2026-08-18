@@ -99,7 +99,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
                       items-center
                       justify-center
                       text-lg
-                      flex-shrink-0
+                      shrink-0
                     "
                   >
                     <FaUser />
