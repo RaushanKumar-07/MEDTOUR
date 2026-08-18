@@ -38,14 +38,7 @@ const Navbar = ({
       label: "Doctors",
       path: "/doctors",
     },
-    {
-      label: "About Us",
-      path: "/about",
-    },
-    {
-      label: "Contact",
-      path: "/contact",
-    },
+    
   ];
 
   const profileMenu = [
