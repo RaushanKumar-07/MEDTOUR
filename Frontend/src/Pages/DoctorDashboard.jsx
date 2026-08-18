@@ -1,8 +1,8 @@
 import React from "react";
 
-import DoctorProfile from "../Components/Doctor/DoctorProfile";
-import DoctorAppointmentStats from "../Components/Doctor/DoctorAppointmentStats";
-import UpcomingAppointments from "../Components/Doctor/UpcomingAppointments";
+import DoctorProfile from "../Components/DoctorDashboard/DoctorProfile";
+import DoctorAppointmentStats from "../Components/DoctorDashboard/DoctorAppointmentStats";
+import UpcomingAppointments from "../Components/DoctorDashboard/UpcomingAppointments";
 
 
 const DoctorDashboard = () => {

@@ -7,6 +7,9 @@ import Footer from "./Pages/Footer"
 import AdminDashboard from './Pages/admin/AdminDashboard';
 import PatientDashboard from './Pages/PatientDashboard';
 import DoctorDashboard from './Pages/DoctorDashboard';
+import Doctors from './Pages/Doctors';
+
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,6 +19,7 @@ createRoot(document.getElementById('root')).render(
        <Route path="/Admin-dashboard" element = { < AdminDashboard /> } />
          <Route path="/Patient-dashboard" element = { < PatientDashboard /> } />
          <Route path="/Doctor-dashboard" element = { < DoctorDashboard /> } />
+         <Route path="/doctors" element = { < Doctors /> } />
       </Routes>
       <Footer/>
       
