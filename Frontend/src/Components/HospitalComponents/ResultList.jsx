@@ -3,22 +3,11 @@ import hospitals from "./Data/HospitalData";
 import HospitalCard from "./HospitalCard";
 
 const ResultList = () => {
-  if (hospitals.length === 0) {
-    return (
-      <div className="rounded-2xl border border-dashed border-slate-300 p-10 text-center">
-        <h2 className="text-lg font-semibold text-slate-700">
-          No hospitals found
-        </h2>
-
-        <p className="mt-2 text-sm text-slate-500">
-          Try changing your search, category, or location.
-        </p>
-      </div>
-    );
-  }
 
   return (
-    <div className="flex w-full flex-col gap-4 sm:gap-5">
+    <div className="px-5 flex w-full flex-col gap-4 sm:gap-5">
+      <h1 className='text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-3'>Explore Top Rated Hospitals</h1>
+      <h3 className="text-slate-800">Compare accredited healthcare insititution and book your cunsultation</h3>
       {hospitals.map((hospital) => (
         <HospitalCard
           key={hospital.id}

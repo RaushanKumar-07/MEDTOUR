@@ -1,3 +1,14 @@
+import hp1 from '../../../assets/hp1.webp'
+import hp2 from '../../../assets/hp2.webp'
+import hp3 from '../../../assets/hp3.webp'
+import hp4 from '../../../assets/hp4.webp'
+import hp5 from '../../../assets/hp5.webp'
+import hp6 from '../../../assets/hp6.webp'
+import hp7 from '../../../assets/hp7.webp'
+import hp8 from '../../../assets/hp8.webp'
+import hp9 from '../../../assets/hp9.webp'
+import hp10 from '../../../assets/hp10.webp'
+
 const hospitals = [
   {
     id: 1,
@@ -10,7 +21,7 @@ const hospitals = [
     price: "₹40,000",
     hospitalDescription: "A premier multi-specialty institution renowned for cutting-edge infrastructure and accredited surgical care.",
     image:
-      "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=700&q=80",
+     hp1,
   },
   {
     id: 2,
@@ -22,7 +33,7 @@ const hospitals = [
     catogary:"Hair Transplant",
     price: "₹45,000",
     image:
-      "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=700&q=80",
+      hp2,
   },
   {
     id: 3,
@@ -34,7 +45,98 @@ const hospitals = [
     catogary:"Hair Transplant",
     price: "₹42,000",
     image:
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=700&q=80",
+     hp3,
+  },
+  {
+    id: 4,
+    name: "Max Super Speciality Hospital",
+    location: "Saket, New Delhi",
+    rating: 4.6,
+    reviews: "980+",
+    treatment: "Dental Treatment",
+    category: "Dental Treatment",
+    price: "₹15,000",
+    hospitalDescription: "Leading healthcare hub offering specialized clinical care and advanced diagnostic facilities.",
+    treatmentDescription: "Comprehensive dental implants, root canal therapy, and smile designing with 3D digital oral imaging.",
+    image: hp4,
+  },
+  {
+    id: 5,
+    name: "Manipal Hospital",
+    location: "Bengaluru",
+    rating: 4.7,
+    reviews: "1450+",
+    treatment: "Cardiac Care",
+    category: "Cardiac Care",
+    price: "₹2,50,000",
+    hospitalDescription: "One of India's pioneer quaternary healthcare chains equipped with advanced cardiac catheterization labs.",
+    treatmentDescription: "Minimally invasive coronary angioplasty, bypass surgery (CABG), and heart valve repair procedures.",
+    image: hp5,
+  },
+  {
+    id: 6,
+    name: "Sir Ganga Ram Hospital",
+    location: "New Delhi",
+    rating: 4.6,
+    reviews: "1250+",
+    treatment: "Cosmetic Surgery",
+    category: "Cosmetic Surgery",
+    price: "₹75,000",
+    hospitalDescription: "A premier multi-super-speciality hospital celebrated for pioneer surgical departments and expert consultants.",
+    treatmentDescription: "Aesthetic procedures including rhinoplasty, liposuction, and reconstructive facial surgery.",
+    image: hp6,
+  },
+  {
+    id: 7,
+    name: "Nova IVF Fertility",
+    location: "Mumbai",
+    rating: 4.8,
+    reviews: "720+",
+    treatment: "Fertility Treatment",
+    category: "Fertility Treatment",
+    price: "₹1,20,000",
+    hospitalDescription: "A specialized reproductive health and fertility network delivering advanced embryology and genetic screening.",
+    treatmentDescription: "Assisted reproductive technology including IVF, ICSI, and fertility preservation under specialist embryologists.",
+    image: hp7,
+  },
+  {
+    id: 8,
+    name: "Kokilaben Dhirubhai Ambani Hospital",
+    location: "Mumbai",
+    rating: 4.7,
+    reviews: "1600+",
+    treatment: "Cosmetic Surgery, Hair Transplant",
+    category: "Cosmetic Surgery",
+    price: "₹85,000",
+    hospitalDescription: "A landmark healthcare institution featuring full-time specialist systems and robotic surgical suites.",
+    treatmentDescription: "Full body contouring, blepharoplasty, and advanced scar revision techniques with minimal recovery time.",
+    image: hp8,
+  },
+  {
+    id: 9,
+    name: "Artemis Hospital",
+    location: "Gurugram",
+    rating: 4.5,
+    reviews: "690+",
+    treatment: "Dental Treatment",
+    category: "Dental Treatment",
+    price: "₹18,000",
+    hospitalDescription: "JCI and NABH accredited tertiary facility delivering patient-focused restorative and preventive care.",
+    treatmentDescription: "Complete oral rehabilitation, painless laser dentistry, and ceramic crown restoration.",
+    image: hp9,
+  },
+  {
+    id: 10,
+    name: "Narayana Institute of Cardiac Sciences",
+    location: "Bengaluru",
+    rating: 4.9,
+    reviews: "2100+",
+    treatment: "Cardiac Care",
+    category: "Cardiac Care",
+    price: "₹2,20,000",
+    hospitalDescription: "One of the world's largest cardiac care centers, handling high-volume complex pediatric and adult heart surgeries.",
+    treatmentDescription: "Complex pediatric cardiac surgeries, electrophysiology studies, and advanced heart failure management.",
+    image: hp10,
   },
 ];
 
