@@ -8,6 +8,9 @@ import AdminDashboard from './Pages/admin/AdminDashboard';
 import PatientDashboard from './Pages/PatientDashboard';
 import DoctorDashboard from './Pages/DoctorDashboard';
 import Doctors from './Pages/Doctors';
+import Home from './Pages/Home';
+import hospitals from './Pages/Hospital';
+import treatments from './Pages/Treatment';
 
 
 
@@ -16,10 +19,13 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter>
       <Navbar/>
        <Routes>
+         <Route path="/" element = { < Home /> } />
        <Route path="/Admin-dashboard" element = { < AdminDashboard /> } />
          <Route path="/Patient-dashboard" element = { < PatientDashboard /> } />
          <Route path="/Doctor-dashboard" element = { < DoctorDashboard /> } />
          <Route path="/doctors" element = { < Doctors /> } />
+         <Route path="/hospitals" element = { <Hospital/> } />
+         <Route path="/treatments" element = { < Treatment /> } />
       </Routes>
       <Footer/>
       
