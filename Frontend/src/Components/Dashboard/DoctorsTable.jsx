@@ -36,14 +36,17 @@ const DoctorsTable = () => {
 
   const handleCancel = () => {
     setEditModalOpen(false);
+    setMessage(null)
     form.resetFields();
   };
   const handleAddDoctorCancel = () => {
     setAddDoctorModalOpen(false);
+    setEditModalOpen(false);
     form.resetFields();
   };
   const handleCreateUserModalCancel = () => {
     setCreateUserModalOpen(false);
+    setEditModalOpen(false);
     form.resetFields();
   };
 

@@ -24,21 +24,80 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Navbar />
       <Routes>
-        //public routes
-        <Route path="/" element={< Home />} />
-        <Route path="/login" element={< Login />} />
-        <Route path="/register" element={< Register />} />
-        <Route path="/hospitals" element={< Hospital />} />
-        <Route path="/treatments" element={< Treatment />} />
+        {/* Public routes */}
 
-        //Protected Routes
+        <Route path="/" element={<Home />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/hospitals" element={<Hospital />} />
+
+        <Route path="/treatments" element={<Treatment />} />
+
+        {/* Login required */}
+
         <Route element={<Protected_route />}>
-            <Route path="/appointment" element={< Appointment />} />
-            <Route path="/forget" element={< Forget_password />} />
-            <Route path="/Admin-dashboard" element={< AdminDashboard />} />
-            <Route path="/Patient-dashboard" element={< PatientDashboard />} />
-            <Route path="/Doctor-dashboard" element={< DoctorDashboard />} />
-            <Route path="/doctors" element={< Doctors />} />
+          <Route
+            path="/appointment"
+            element={<Appointment />}
+          />
+
+          <Route
+            path="/forget"
+            element={<Forget_password />}
+          />
+        </Route>
+
+        {/* Admin routes */}
+
+        <Route
+          element={
+            <Protected_route
+              allowedRoles={["Admin"]}
+            />
+          }
+        >
+          <Route
+            path="/Admin-dashboard"
+            element={<AdminDashboard />}
+          />
+        </Route>
+
+        {/* Doctor routes */}
+
+        <Route
+          element={
+            <Protected_route
+              allowedRoles={["Doctor"]}
+            />
+          }
+        >
+          <Route
+            path="/Doctor-dashboard"
+            element={<DoctorDashboard />}
+          />
+
+          <Route
+            path="/doctors"
+            element={<Doctors />}
+          />
+        </Route>
+
+        {/* Patient routes */}
+
+        <Route
+          element={
+            <Protected_route
+              allowedRoles={["Patient"]}
+            />
+          }
+        >
+          <Route
+            path="/Patient-dashboard"
+            element={<PatientDashboard />}
+          />
         </Route>
       </Routes>
       <Footer />
