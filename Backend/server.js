@@ -19,10 +19,12 @@ console.log("Server is running...")
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: [ "http://localhost:5173",
-    "medtour-peach.vercel.app"],
-    credentials: true,
-}))
+  origin: [
+    "http://localhost:5173",
+    "https://medtour-peach.vercel.app"
+  ],
+  credentials: true,
+}));
 app.use(Routes)
 
 //Step-3
