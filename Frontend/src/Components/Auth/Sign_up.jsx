@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form, Input, Flex, Select } from 'antd';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Sign_up = () => {
     const [color, setColor] = useState();
@@ -89,7 +89,7 @@ const Sign_up = () => {
                     <Form.Item>
                         <Flex justify='center' align='center' gap={5} className='text-lg'>
                             <p>Already have account?</p>
-                            <Link to="/" className="text-green-600! hover:text-green-700!">
+                            <Link to="/login" className="text-green-600! hover:text-green-700!">
                                 Login here
                             </Link>
                         </Flex>

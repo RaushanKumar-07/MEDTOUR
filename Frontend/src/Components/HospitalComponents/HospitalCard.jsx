@@ -141,7 +141,7 @@ const HospitalCard = ({ hospital }) => {
             {hospital.price}
           </p>
           <button
-          onClick ={() => navigate("/book-appointment")}
+          onClick ={() => navigate("/appointment")}
            className='my-2 px-5 py-2 text-white font-medium bg-green-800 border rounded-xl hover:bg-green-500'>Book Appointment</button>
         </div>
       </div>

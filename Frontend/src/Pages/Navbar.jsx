@@ -115,14 +115,14 @@ const Navbar = ({
         </div>
 
      
-        <nav className="hidden flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-7">
+        <nav className="hidden flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-7 ">
 
           {navItems.map((item) => (
             <button
               key={item.label}
               type="button"
               onClick={() => handleNavigation(item.path)}
-              className="whitespace-nowrap text-sm font-medium text-slate-800 transition hover:text-[#087D80] 2xl:text-base"
+              className="whitespace-nowrap text-sm font-medium text-slate-800 transition hover:text-[#087D80] 2xl:text-base hover:cursor-pointer"
             >
               {item.label}
             </button>
@@ -136,12 +136,12 @@ const Navbar = ({
         
           <button
             type="button"
-            onClick={() => navigate("/book-appointment")}
+            onClick={() => navigate("/appointment")}
             className="flex items-center gap-2 rounded-xl bg-[#087D80] px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-[#06676A] sm:px-4 sm:text-base"
           >
             <FiCalendar className="text-base sm:text-lg" />
 
-            <span className="hidden md:inline">
+            <span className="hidden md:inline hover:cursor-pointer">
               Book Appointment
             </span>
 
@@ -155,7 +155,7 @@ const Navbar = ({
             <button
               type="button"
               onClick={() => navigate("/login")}
-              className="flex items-center gap-2 rounded-xl border border-[#087D80] px-3 py-2.5 text-sm font-semibold text-[#087D80] transition hover:bg-[#087D80] hover:text-white sm:px-4 sm:text-base"
+              className="flex items-center gap-2 rounded-xl border border-[#087D80] px-3 py-2.5 text-sm font-semibold text-[#087D80] transition hover:bg-[#087D80] hover:text-white sm:px-4 sm:text-base hover:cursor-pointer"
             >
               <FiLogIn />
 

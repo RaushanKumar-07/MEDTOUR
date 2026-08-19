@@ -219,8 +219,8 @@ const Footer = () => {
         
             <button
               type="button"
-              onClick={() => navigate("/book-appointment")}
-              className="mt-6 flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#064B50] transition hover:bg-[#E8FFFC]"
+              onClick={() => navigate("/appointment")}
+              className="mt-6 flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#064B50] transition hover:bg-[#E8FFFC] hover:cursor-pointer"
             >
               Book Appointment
               <FiArrowRight />

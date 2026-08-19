@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Checkbox, Form, Input, Flex, Modal } from 'antd';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 const Sign_in = () => {
     const [color, setColor] = useState();
     const [modalOpen, setModalOpen] = useState(false);
@@ -108,7 +108,7 @@ const Sign_in = () => {
                     </Form.Item>
 
                     <Form.Item>
-                        <Link to="/forgetPassword" className="text-green-600! hover:text-green-700! text-lg">
+                        <Link to="/forget" className="text-green-600! hover:text-green-700! text-lg">
                             Forgot password
                         </Link>
                     </Form.Item>
@@ -121,7 +121,7 @@ const Sign_in = () => {
                     <Form.Item>
                         <Flex justify='center' align='center' gap={5} className='text-lg'>
                             <p>Don't have account?</p>
-                            <Link to="/signUp" className="text-green-600! hover:text-green-700!">
+                            <Link to="/register" className="text-green-600! hover:text-green-700!">
                                 Sign up
                             </Link>
                         </Flex>
