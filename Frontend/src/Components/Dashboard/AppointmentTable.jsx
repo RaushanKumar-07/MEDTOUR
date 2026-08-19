@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
+import api from '../services/api';
 
 import {
   Table,
@@ -26,7 +27,7 @@ import {
 
 const AppoinmentTable = () => {
 
-  const [appoinment, setAppoinment] = useState();
+  const [appointment, setAppointment] = useState();
   const [Id, setId] = useState();
   const [form] = Form.useForm();
   const [EditMessage, setEditMessage] = useState();
@@ -50,8 +51,8 @@ const AppoinmentTable = () => {
     };
 
     try {
-      const response = await axios.put(
-        `http://localhost:5001/api/Appointment_routes/updateAppointment/${Id}`,
+      const response = await api.put(
+        `/Appointment_routes/updateAppointment/${Id}`,
         appointmentData,
         // {
         //     withCredentials: true,
@@ -86,11 +87,11 @@ const AppoinmentTable = () => {
     try {
       setLoading(true);
 
-      const response = await axios.get(
-        "http://localhost:5001/api/Appointment_routes/getAppointment"
+      const response = await api.get(
+        "/Appointment_routes/getAppointment"
       );
 
-      setAppoinment(response.data.data);
+      setAppointment(response.data.data);
 
     } catch (error) {
 
@@ -129,8 +130,8 @@ const AppoinmentTable = () => {
     const deleteAppoinment = async () => {
       try {
 
-        await axios.delete(
-          `http://localhost:5001/api/Appointment_routes/deleteAppointment/${appoinment._id}`
+        await api.delete(
+          `/Appointment_routes/deleteAppointment/${appoinment._id}`
         );
 
         message.success("Appointment deleted successfully");
@@ -474,7 +475,7 @@ const AppoinmentTable = () => {
         <Table
           columns={columns}
 
-          dataSource={appoinment}
+          dataSource={appointment}
 
           rowKey="_id"
 

@@ -1,84 +1,38 @@
 import React from "react";
-
+ import axios from "axios";
+import { useEffect, useState } from "react";
 import PatientProfile from "../Components/Patient/PatientProfile";
 import UpcomingAppointments from "../Components/Patient/UpcomingAppointments";
-import RecentAppointments from "../Components/Patient/RecentAppointments";
 
 
 const PatientDashboard = () => {
 
-  /*
-  =====================================================
-  PATIENT BACKEND DATA
-  =====================================================
-
-  Uncomment when backend is ready.
-
-  import axios from "axios";
-  import { useEffect, useState } from "react";
-
-
-  const [patient, setPatient] = useState(null);
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
-  const fetchPatientDashboard = async () => {
-
+   const fetchAppointment = async () => {
     try {
+      setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5001/api/patient/dashboard"
+        "http://localhost:5001/api/Appointment_routes/getAppointment"
       );
 
-      setPatient(response.data.patient);
-      setAppointments(response.data.appointments);
+      setAppointments(response.data.data);
 
     } catch (error) {
 
-      console.error(
-        "Error fetching patient dashboard:",
-        error
-      );
+      message.error("Unable to load appointment");
 
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
 
   useEffect(() => {
-    fetchPatientDashboard();
+    fetchAppointment();
   }, []);
-
-  */
-
-
-  // =====================================================
-  // TEMPORARILY EMPTY
-  // =====================================================
-  // Remove these when backend is connected.
-
-  const patient = null;
-  const appointments = [];
-
-
-  // =====================================================
-  // SEPARATE APPOINTMENTS
-  // =====================================================
-
-  const upcomingAppointments = appointments.filter(
-    (appointment) =>
-      appointment.status === "Upcoming"
-  );
-
-  const recentAppointments = appointments.filter(
-    (appointment) =>
-      appointment.status === "Completed"
-  );
 
 
   return (
@@ -97,9 +51,7 @@ const PatientDashboard = () => {
 
         {/* PATIENT PROFILE */}
 
-        <PatientProfile
-          patient={patient}
-        />
+        <PatientProfile/>
 
 
         {/* PAGE HEADER */}
@@ -111,11 +63,11 @@ const PatientDashboard = () => {
           </p>
 
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
-            My Appointments
+            All Appointments
           </h1>
 
           <p className="text-gray-500 mt-2">
-            View your upcoming and recent appointments.
+            View all appointments.
           </p>
 
         </div>
@@ -124,14 +76,7 @@ const PatientDashboard = () => {
         {/* UPCOMING */}
 
         <UpcomingAppointments
-          appointments={upcomingAppointments}
-        />
-
-
-        {/* RECENT */}
-
-        <RecentAppointments
-          appointments={recentAppointments}
+          appointments={appointments}
         />
 
       </main>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   FaUser,
@@ -7,7 +7,22 @@ import {
 } from "react-icons/fa6";
 
 
-const PatientProfile = ({ patient }) => {
+const PatientProfile = () => {
+
+   const [user, setUser] = useState();
+  
+    useEffect(() => {
+      const storedUser = localStorage.getItem("user");
+  
+      if (storedUser) {
+        const parsedUser = JSON.parse(storedUser);
+  
+        setUser(parsedUser);
+  
+        console.log(parsedUser);
+      }
+    }, []);
+  
   return (
     <section
       className="
@@ -54,7 +69,7 @@ const PatientProfile = ({ patient }) => {
                 text-gray-800
               "
             >
-              {patient?.name || "Patient"}
+              {user?.fullName || "Patient"}
             </h1>
 
             <span
@@ -72,10 +87,6 @@ const PatientProfile = ({ patient }) => {
             </span>
 
           </div>
-
-          <p className="text-sm text-gray-500 mt-1">
-            Patient ID: {patient?.patientId || "Not available"}
-          </p>
 
         </div>
 
@@ -123,7 +134,7 @@ const PatientProfile = ({ patient }) => {
             </p>
 
             <p className="text-sm font-medium text-gray-700">
-              {patient?.email || "Not available"}
+              {user?.email || "Not available"}
             </p>
 
           </div>
@@ -157,7 +168,7 @@ const PatientProfile = ({ patient }) => {
             </p>
 
             <p className="text-sm font-medium text-gray-700">
-              {patient?.phone || "Not available"}
+              {user?.phone || "Not available"}
             </p>
 
           </div>

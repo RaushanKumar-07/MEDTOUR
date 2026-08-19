@@ -1,97 +1,38 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import DoctorProfile from "../Components/DoctorDashboard/DoctorProfile";
 import DoctorAppointmentStats from "../Components/DoctorDashboard/DoctorAppointmentStats";
 import UpcomingAppointments from "../Components/DoctorDashboard/UpcomingAppointments";
+import { message } from "antd";
+import axios from "axios";
 
 
 const DoctorDashboard = () => {
-
-  /*
-  =====================================================
-  DOCTOR BACKEND DATA
-  =====================================================
-
-  Uncomment when backend is ready.
-
-  import axios from "axios";
-  import { useEffect, useState } from "react";
-
-
-  const [doctor, setDoctor] = useState(null);
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
-  const fetchDoctorDashboard = async () => {
-
+ const fetchAppointments = async () => {
     try {
+      setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5001/api/doctor/dashboard"
+        "http://localhost:5001/api/Appointment_routes/getAppointment"
       );
 
-      setDoctor(response.data.doctor);
-      setAppointments(response.data.appointments);
+      setAppointments(response.data.data);
 
     } catch (error) {
 
-      console.error(
-        "Error fetching doctor dashboard:",
-        error
-      );
+      message.error("Unable to load appointment");
 
     } finally {
-
       setLoading(false);
-
     }
-
   };
 
 
   useEffect(() => {
-    fetchDoctorDashboard();
+    fetchAppointments();
   }, []);
-
-
-  =====================================================
-  EXPECTED BACKEND RESPONSE
-  =====================================================
-
-  {
-    doctor: {
-      name: "...",
-      email: "...",
-      phone: "...",
-      doctorId: "...",
-      specialization: "...",
-      hospital: "..."
-    },
-
-    appointments: [
-      {
-        id: "...",
-        patient: "...",
-        patientId: "...",
-        hospital: "...",
-        date: "...",
-        time: "...",
-        status: "Upcoming"
-      }
-    ]
-  }
-
-  */
-
-
-  // =====================================================
-  // TEMPORARILY EMPTY
-  // =====================================================
-  // Remove these two lines when backend is connected.
-
-  const doctor = null;
-  const appointments = [];
 
 
   // =====================================================
@@ -120,9 +61,7 @@ const DoctorDashboard = () => {
 
         {/* DOCTOR PROFILE */}
 
-        <DoctorProfile
-          doctor={doctor}
-        />
+        <DoctorProfile/>
 
 
         {/* PAGE HEADER */}
@@ -138,7 +77,7 @@ const DoctorDashboard = () => {
           </h1>
 
           <p className="text-gray-500 mt-2">
-            View your profile and appointments.
+            View all appointments.
           </p>
 
         </div>
@@ -154,7 +93,7 @@ const DoctorDashboard = () => {
         {/* UPCOMING APPOINTMENTS */}
 
         <UpcomingAppointments
-          appointments={upcomingAppointments}
+          appointments={appointments}
         />
 
       </main>

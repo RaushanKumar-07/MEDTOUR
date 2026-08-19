@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   FaUserDoctor,
@@ -8,7 +8,21 @@ import {
 } from "react-icons/fa6";
 
 
-const DoctorProfile = ({ doctor }) => {
+const DoctorProfile = () => {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+
+      setUser(parsedUser);
+
+      console.log(parsedUser);
+    }
+  }, []);
+
   return (
     <section
       className="
@@ -55,8 +69,8 @@ const DoctorProfile = ({ doctor }) => {
                 text-gray-800
               "
             >
-              {doctor?.name
-                ? `Dr. ${doctor.name}`
+              {user?.fullName
+                ? `Dr. ${user.fullName}`
                 : "Doctor"}
             </h1>
 
@@ -75,11 +89,6 @@ const DoctorProfile = ({ doctor }) => {
             </span>
 
           </div>
-
-
-          <p className="text-sm text-gray-500 mt-1">
-            Doctor ID: {doctor?.doctorId || "Not available"}
-          </p>
 
         </div>
 
@@ -128,7 +137,7 @@ const DoctorProfile = ({ doctor }) => {
             </p>
 
             <p className="text-sm font-medium text-gray-700 break-all">
-              {doctor?.email || "Not available"}
+              {user?.email || "Not available"}
             </p>
 
           </div>
@@ -162,61 +171,13 @@ const DoctorProfile = ({ doctor }) => {
             </p>
 
             <p className="text-sm font-medium text-gray-700">
-              {doctor?.phone || "Not available"}
+              {user?.phone || "Not available"}
             </p>
 
           </div>
 
         </div>
 
-
-        {/* HOSPITAL */}
-
-        <div className="flex items-center gap-3">
-
-          <div
-            className="
-              w-10
-              h-10
-              rounded-lg
-              bg-gray-50
-              text-gray-500
-              flex
-              items-center
-              justify-center
-            "
-          >
-            <FaHospital />
-          </div>
-
-          <div>
-
-            <p className="text-xs text-gray-400">
-              Hospital
-            </p>
-
-            <p className="text-sm font-medium text-gray-700">
-              {doctor?.hospital || "Not assigned"}
-            </p>
-
-          </div>
-
-        </div>
-
-
-        {/* SPECIALIZATION */}
-
-        <div className="sm:col-span-2 lg:col-span-3">
-
-          <p className="text-xs text-gray-400">
-            Specialization
-          </p>
-
-          <p className="text-sm font-medium text-gray-700 mt-1">
-            {doctor?.specialization || "Not specified"}
-          </p>
-
-        </div>
 
       </div>
 
