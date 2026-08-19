@@ -33,7 +33,7 @@ const TreatmentCard = ({
           src={image}
           alt={title}
           className="
-            h-37.5
+            h-55
             w-full
             rounded-xl
             object-cover
