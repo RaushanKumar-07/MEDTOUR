@@ -21,7 +21,7 @@ import {
   FaTrash,
 } from "react-icons/fa6";
 
-const DoctorsTable = () => {
+const AppoinmentTable = () => {
 
   const [doctors, setDoctors] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -455,4 +455,4 @@ const DoctorsTable = () => {
   );
 };
 
-export default DoctorsTable;
+export default AppoinmentTable;

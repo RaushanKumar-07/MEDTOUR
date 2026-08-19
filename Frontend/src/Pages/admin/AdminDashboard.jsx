@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   FaUserDoctor,
@@ -11,14 +11,15 @@ import {
 
 import StatCard from "../../Components/StatCard";
 import DoctorsTable from "../../Components/Dashboard/DoctorsTable";
+import AppoinmentTable from "../../Components/Dashboard/AppointmentTable";
 
 
 const AdminDashboard = () => {
 
-  /*
-  =====================================================
-  ADMIN LOGIN DETAILS - BACKEND WILL BE CONNECTED LATER
-  =====================================================
+
+  // =====================================================
+  // ADMIN LOGIN DETAILS - BACKEND WILL BE CONNECTED LATER
+  // =====================================================
 
   const [admin, setAdmin] = useState(null);
   const [loadingAdmin, setLoadingAdmin] = useState(true);
@@ -51,7 +52,6 @@ const AdminDashboard = () => {
     fetchAdminProfile();
   }, []);
 
-  */
 
 
   return (
@@ -218,6 +218,7 @@ const AdminDashboard = () => {
             ===================================================== */}
 
         <DoctorsTable />
+        <AppoinmentTable />
 
 
       </main>
