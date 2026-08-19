@@ -175,11 +175,7 @@ const AppoinmentTable = () => {
           <div>
 
             <p className="font-semibold text-gray-800 m-0">
-              Dr. {appoinment.name}
-            </p>
-
-            <p className="text-xs text-gray-400 m-0">
-              Registered Doctor
+              {appoinment.patientName}
             </p>
 
           </div>
@@ -201,10 +197,9 @@ const AppoinmentTable = () => {
 
         <div className="flex items-center gap-2">
 
-          <FaEnvelope className="text-gray-400" />
-
           <span>
-            {appoinment.email}
+            {appoinment.doctorName ||
+            "Not specified"}
           </span>
 
         </div>
@@ -227,7 +222,7 @@ const AppoinmentTable = () => {
           <FaPhone className="text-gray-400" />
 
           <span>
-            {appoinment.phone || "Not provided"}
+            {appoinment.preferredDate || "Not provided"}
           </span>
 
         </div>
@@ -247,7 +242,7 @@ const AppoinmentTable = () => {
 
         <Tag color="cyan">
 
-          {appoinment.specialization ||
+          {appoinment.time ||
             "Not specified"}
 
         </Tag>
@@ -266,7 +261,7 @@ const AppoinmentTable = () => {
       render: (_, appoinment) => (
 
         <span>
-          {appoinment.hospital || "Not assigned"}
+          {appoinment.status || "Not assigned"}
         </span>
 
       ),
@@ -434,7 +429,7 @@ const AppoinmentTable = () => {
           locale={{
             emptyText: (
               <Empty
-                description="No doctors registered yet"
+                description="No appointment registered yet"
               />
             ),
           }}

@@ -1,19 +1,39 @@
 import { Checkbox, DatePicker, Form, Input, Select, TimePicker } from 'antd';
-import React from 'react'
+import React, { useState } from 'react'
 import help_logo from '../assets/help_logo.png'
 import call_logo from '../assets/call_logo.png'
 import mail_logo from '../assets/mail_logo.png'
+import axios from 'axios';
 
 const Appointment = () => {
     const [form] = Form.useForm();
+    const [Message, setMessage] = useState();
 
-    const onFinish = (values) => {
-        console.log(values);
+    const onFinish = values => {
+    const appointmentData = {
+      patientName: values.patientName,
+      email: values.email,
+      phone: values.phone,
+      country: values.country,
+      preferredDate: values.preferredDate ? values.preferredDate.format("YYYY-MM-DD") : null,
+      treatment: values.treatment,
+      doctorName: values.doctorName,
+      message: values.message,
     };
+
+    axios.post("http://localhost:5001/api/Appointment_routes/addAppointment", appointmentData)
+      .then((res) => {
+        setMessage(res.data.message)
+      })
+      .catch((error) => {
+        setMessage(error.response.data.message)
+      })
+  };
 
     return (
         <div className='flex'>
             <section className='h-screen w-full p-5 flex flex-col gap-3'>
+                <h1 className="text-2xl text-green-500 text-center">{Message}</h1>
                 <span className='text-center flex flex-col gap-1'>
                     <h1 className='text-4xl'>Appointment / Consultation Request</h1>
                     <p className='text-xl text-gray-400'>Fill in your details and our team will get in touch with you.</p>
@@ -24,7 +44,7 @@ const Appointment = () => {
                             <h1 className="text-lg font-semibold">Your details</h1>
                             <Form.Item
                                 label="Full Name"
-                                name="fullName"
+                                name="patientName"
                                 rules={[
                                     {
                                         required: true,
@@ -94,7 +114,7 @@ const Appointment = () => {
 
                             <Form.Item
                                 label="Preferred Date"
-                                name="date"
+                                name="preferredDate"
                             >
                                 <DatePicker
                                     size="large"
@@ -137,7 +157,7 @@ const Appointment = () => {
 
                             <Form.Item
                                 label="Doctor (Optional)"
-                                name="doctor"
+                                name="doctorName"
                             >
                                 <Select
                                     size="large"
@@ -182,8 +202,7 @@ const Appointment = () => {
                             </Form.Item>
 
                             <button
-                                type="primary"
-                                htmlType="submit"
+                                type="submit"
                                 className='h-10 w-full text-xl hover:rounded-2xl cursor-pointer transition ease-in-out duration-500 text-white rounded-lg bg-green-800'
                             >
                                 Submit Request
