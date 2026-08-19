@@ -13,7 +13,7 @@ const DoctorCard = ({ doctor }) => {
   const navigate = useNavigate();
 
   const handleBookAppointment = () => {
-    navigate("/book-appointment", {
+    navigate("/appointment", {
       state: {
         doctorId: doctor?._id || doctor?.id,
         doctorName: doctor?.name || "",
