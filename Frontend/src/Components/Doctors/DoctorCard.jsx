@@ -109,7 +109,7 @@ const DoctorCard = ({ doctor }) => {
             </p>
 
             <p className="text-sm text-gray-700 truncate">
-              {doctor?.email || "Not provided"}
+              {doctor?.specialization || "Not provided"}
             </p>
 
           </div>

@@ -21,7 +21,7 @@ const Doctors = () => {
   // Uncomment this section when your backend is ready.
 
   useEffect(() => {
-    axios.get("http://localhost:5173/Doctor_routes/getDoctor")
+    axios.get("http://localhost:5001/api/Doctor_routes/getDoctor")
       .then((response) => {
         setDoctors(response.data.data)
       })
