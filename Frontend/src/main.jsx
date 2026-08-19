@@ -66,6 +66,19 @@ createRoot(document.getElementById('root')).render(
         </Route>
 
         {/* Doctor routes */}
+        <Route
+          element={
+            <Protected_route
+            />
+          }
+        >
+
+          <Route
+            path="/doctors"
+            element={<Doctors />}
+          />
+        </Route>
+
 
         <Route
           element={
@@ -79,10 +92,6 @@ createRoot(document.getElementById('root')).render(
             element={<DoctorDashboard />}
           />
 
-          <Route
-            path="/doctors"
-            element={<Doctors />}
-          />
         </Route>
 
         {/* Patient routes */}
