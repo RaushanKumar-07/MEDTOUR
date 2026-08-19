@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import dayjs from "dayjs";
 
 import {
   Table,
@@ -11,6 +12,8 @@ import {
   Modal,
   Form,
   Input,
+  DatePicker,
+  Select,
 } from "antd";
 
 import {
@@ -24,45 +27,51 @@ import {
 const AppoinmentTable = () => {
 
   const [appoinment, setAppoinment] = useState();
+  const [Id, setId] = useState();
+  const [form] = Form.useForm();
+  const [EditMessage, setEditMessage] = useState();
+  const [color, setColor] = useState()
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
   const handleCancel = () => {
     setIsModalOpen(false);
+    form.resetFields();
   };
-
 
   const onFinish = async (values) => {
     console.log("Sending:", values);
+    const appointmentData = {
+      doctorName: values.doctorName,
+      preferredDate: values.preferredDate ? values.preferredDate.format("YYYY-MM-DD") : null,
+      time: values.time,
+      status: values.status,
+    };
 
-    // try {
-    //     const response = await axios.post(
-    //         "http://localhost:5001/api/Login_routes/Signup",
-    //         values,
-    //         {
-    //             withCredentials: true,
-    //         }
-    //     );
+    try {
+      const response = await axios.put(
+        `http://localhost:5001/api/Appointment_routes/updateAppointment/${Id}`,
+        appointmentData,
+        // {
+        //     withCredentials: true,
+        // }
+      );
 
-    //     console.log("Response:", response.data);
+      console.log("Response:", response.data);
 
-    //     setmessage(response.data.message);
-    //     setColor("text-green-500");
-
-    //     setTimeout(() => {
-    //         navigate("/login");
-    //     }, 1500);
+      setEditMessage(response.data.message);
+      setColor("text-green-500");
 
 
-    // } catch (error) {
-    //     console.log("Error:", error.response?.data || error);
+    } catch (error) {
+      console.log("Error:", error.response?.data || error);
 
-    //     setmessage(
-    //         error.response?.data?.message || "Something went wrong"
-    //     );
-    //     setColor("text-red-500")
-    // }
+      setEditMessage(
+        error.response?.data?.message || "Something went wrong"
+      );
+      setColor("text-red-500")
+    }
   };
 
 
@@ -102,47 +111,39 @@ const AppoinmentTable = () => {
   const handleEdit = (appoinment) => {
     console.log("Edit doctor:", appoinment);
     setIsModalOpen(true)
+    setId(appoinment._id)
+
+    if (appoinment) {
+      const values = {
+        doctorName: appoinment.doctorName,
+        preferredDate: appoinment.preferredDate ? dayjs(appoinment.preferredDate) : null,
+        time: appoinment.time,
+        status: appoinment.status,
+
+      };
+      form.setFieldsValue(values);
+    }
   };
 
   const handleDelete = (appoinment) => {
 
-    // TEMPORARY FRONTEND DELETE
-    // This will be replaced with API call later.
-
-    setAppoinment((previousAppoinment) =>
-      previousAppoinment.filter(
-        (item) => item._id !== appoinment._id
-      )
-    );
-
-    message.success("Doctor deleted successfully");
-
-
-    const deleteDoctor = async () => {
+    const deleteAppoinment = async () => {
       try {
 
         await axios.delete(
-          `http://localhost:5001/api/Doctor_routes/deleteDoctor/${doctor._id}`
+          `http://localhost:5001/api/Appointment_routes/deleteAppointment/${appoinment._id}`
         );
 
-        message.success("Doctor deleted successfully");
-
-        setAppoinment((previousAppoinment) =>
-          previousAppoinment.filter(
-            (item) => item._id !== appoinment._id
-          )
-        );
+        message.success("Appointment deleted successfully");
 
       } catch (error) {
 
-        console.error("Error deleting doctor:", error);
-
-        message.error("Unable to delete doctor");
+        message.error("Unable to delete appointment");
 
       }
     };
 
-    deleteDoctor();
+    deleteAppoinment();
   };
 
 
@@ -198,8 +199,8 @@ const AppoinmentTable = () => {
         <div className="flex items-center gap-2">
 
           <span>
-            {appoinment.doctorName ||
-            "Not specified"}
+            Dr. {appoinment.doctorName ||
+              "Not specified"}
           </span>
 
         </div>
@@ -218,8 +219,6 @@ const AppoinmentTable = () => {
       render: (_, appoinment) => (
 
         <div className="flex items-center gap-2">
-
-          <FaPhone className="text-gray-400" />
 
           <span>
             {appoinment.preferredDate || "Not provided"}
@@ -331,42 +330,105 @@ const AppoinmentTable = () => {
         onCancel={handleCancel}
         footer={null}
       >
-        <Form layout={"vertical"} onFinish={onFinish}>
+        <h1 className={`${color} text-2xl text-center`}>{EditMessage}</h1>
+        <Form layout={"vertical"} onFinish={onFinish} form={form}>
           <Form.Item
-            label="Full Name:"
-            name="fullName"
-            rules={[{ required: true, message: 'Please input your Full name!' }]}
+            label="Doctor name"
+            name="doctorName"
           >
-            <Input placeholder='Enter your full name' />
+            <Select
+              size="large"
+              placeholder="Select doctor"
+              options={[
+                {
+                  value: "Anoop Kumar",
+                  label: "Anoop Kumar",
+                },
+                {
+                  value: "Raushan Kumar",
+                  label: "Raushan Kumar",
+                },
+                {
+                  value: "Saurabh Kumar",
+                  label: "Saurabh Kumar",
+                },
+                {
+                  value: "Suraj Kumar",
+                  label: "Suraj Kumar",
+                },
+                {
+                  value: "Ramandeep Kumar",
+                  label: "Ramandeep Kumar",
+                },
+                {
+                  value: "Ashish Kumar",
+                  label: "Ashish Kumar",
+                },
+                {
+                  value: "Ram Kumar",
+                  label: "Ram Kumar",
+                },
+              ]}
+            />
           </Form.Item>
           <Form.Item
-            label="Email:"
-            name="email"
-            rules={[{ required: true, message: 'Please input your email!' }]}
+            label="Preferred Date"
+            name="preferredDate"
           >
-            <Input placeholder='Enter your email' />
+            <DatePicker
+              size="large"
+              className="w-full"
+            />
           </Form.Item>
           <Form.Item
-            label="Phone:"
-            name="phone"
-            rules={[{
-              required: true,
-              pattern: /^[0-9]{10}$/,
-              message: "Mobile number must contain exactly 10 digits!",
-            },]}
+            label="Time"
+            name="time"
           >
-            <Input placeholder='Enter your phone number' maxLength={10} />
+            <Select
+              size="large"
+              placeholder="Select time"
+              options={[
+                {
+                  value: "9:00 AM",
+                  label: "9:00 AM",
+                },
+                {
+                  value: "11:00 AM",
+                  label: "11:00 AM",
+                },
+                {
+                  value: "1:00 PM",
+                  label: "1:00 PM",
+                },
+                {
+                  value: "3:00 PM",
+                  label: "3:00 PM",
+                },
+              ]}
+            />
           </Form.Item>
           <Form.Item
-            label="Password:"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            label="Status"
+            name="status"
           >
-            <Input.Password placeholder='Create your password' />
+            <Select
+              size="large"
+              placeholder="Select status"
+              options={[
+                {
+                  value: "Confirmed",
+                  label: "Confirmed",
+                },
+                {
+                  value: "Rejected",
+                  label: "Reject",
+                },
+              ]}
+            />
           </Form.Item>
           <Form.Item label={null}>
             <button className='h-10 w-full text-xl hover:rounded-2xl cursor-pointer transition ease-in-out duration-500 text-white rounded-lg bg-green-800' type='submit'>
-              Update doctor
+              Update Appointment
             </button>
           </Form.Item>
         </Form>

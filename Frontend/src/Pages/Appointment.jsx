@@ -7,33 +7,36 @@ import axios from 'axios';
 
 const Appointment = () => {
     const [form] = Form.useForm();
+        const [color, setColor] = useState();
     const [Message, setMessage] = useState();
 
     const onFinish = values => {
-    const appointmentData = {
-      patientName: values.patientName,
-      email: values.email,
-      phone: values.phone,
-      country: values.country,
-      preferredDate: values.preferredDate ? values.preferredDate.format("YYYY-MM-DD") : null,
-      treatment: values.treatment,
-      doctorName: values.doctorName,
-      message: values.message,
-    };
+        const appointmentData = {
+            patientName: values.patientName,
+            email: values.email,
+            phone: values.phone,
+            country: values.country,
+            preferredDate: values.preferredDate ? values.preferredDate.format("YYYY-MM-DD") : null,
+            treatment: values.treatment,
+            doctorName: values.doctorName,
+            message: values.message,
+        };
 
-    axios.post("http://localhost:5001/api/Appointment_routes/addAppointment", appointmentData)
-      .then((res) => {
-        setMessage(res.data.message)
-      })
-      .catch((error) => {
-        setMessage(error.response.data.message)
-      })
-  };
+        axios.post("http://localhost:5001/api/Appointment_routes/addAppointment", appointmentData)
+            .then((res) => {
+                setMessage(res.data.message)
+                setColor("text-green-500")
+            })
+            .catch((error) => {
+                setMessage(error.response.data.message)
+                setColor("text-red-500")
+            })
+    };
 
     return (
         <div className='flex'>
-            <section className='h-screen w-full p-5 flex flex-col gap-3'>
-                <h1 className="text-2xl text-green-500 text-center">{Message}</h1>
+            <section className='h-full w-full p-5 flex flex-col gap-3'>
+                <h1 className={`${color} text-2xl text-center`}>{Message}</h1>
                 <span className='text-center flex flex-col gap-1'>
                     <h1 className='text-4xl'>Appointment / Consultation Request</h1>
                     <p className='text-xl text-gray-400'>Fill in your details and our team will get in touch with you.</p>
@@ -212,7 +215,7 @@ const Appointment = () => {
                     </div>
                 </Form>
             </section>
-            <section className='h-screen w-150 p-25'>
+            <section className='h-screen w-150 p-10 pt-37'>
                 <div className='h-full w-full flex flex-col items-center justify-center gap-5 border border-green-300 bg-gray-100 rounded-2xl'>
                     <img src={help_logo} alt="help" className='h-30 w-30' />
                     <h1 className='text-3xl text-teal-600'>Need Help?</h1>

@@ -24,45 +24,43 @@ import {
 const DoctorsTable = () => {
 
   const [doctors, setDoctors] = useState();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [EditModalOpen, setEditModalOpen] = useState(false);
+  const [AddDoctorModalOpen, setAddDoctorModalOpen] = useState(false);
+  const [CreateUserModalOpen, setCreateUserModalOpen] = useState(false);
+  const [Id, setId] = useState();
+  const [message, setMessage] = useState()
+  const [color, setColor] = useState()
+  const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
 
   const handleCancel = () => {
-    setIsModalOpen(false);
+    setEditModalOpen(false);
+    form.resetFields();
   };
 
 
   const onFinish = async (values) => {
     console.log("Sending:", values);
 
-    // try {
-    //     const response = await axios.post(
-    //         "http://localhost:5001/api/Login_routes/Signup",
-    //         values,
-    //         {
-    //             withCredentials: true,
-    //         }
-    //     );
+    try {
+      const response = await axios.put(
+        `http://localhost:5001/api/Doctor_routes/updateDoctor/${Id}`,
+        values,
+        // {
+        //     withCredentials: true,
+        // }
+      );
 
-    //     console.log("Response:", response.data);
+      setMessage(response.data.message);
+      setColor("text-green-500");
 
-    //     setmessage(response.data.message);
-    //     setColor("text-green-500");
+    } catch (error) {
 
-    //     setTimeout(() => {
-    //         navigate("/login");
-    //     }, 1500);
-
-
-    // } catch (error) {
-    //     console.log("Error:", error.response?.data || error);
-
-    //     setmessage(
-    //         error.response?.data?.message || "Something went wrong"
-    //     );
-    //     setColor("text-red-500")
-    // }
+      setMessage(
+        error.response?.data?.message || "Something went wrong"
+      );
+      setColor("text-red-500")
+    }
   };
 
 
@@ -99,11 +97,23 @@ const DoctorsTable = () => {
   }, []);
 
 
-  const handleEdit = (doctor) => {
-    console.log("Edit doctor:", doctor);
-    setIsModalOpen(true)
-  };
+  const handleEdit = (appoinment) => {
+    setEditModalOpen(true)
+    setId(appoinment._id)
 
+    if (appoinment) {
+      const values = {
+        name: appoinment.name,
+        doctorId: appoinment.doctorId,
+        specialization: appoinment.specialization,
+        hospitalName: appoinment.hospitalName,
+        experience: appoinment.experience,
+        consultationFee: appoinment.consultationFee,
+
+      };
+      form.setFieldsValue(values);
+    }
+  };
   const handleDelete = (doctor) => {
 
     // TEMPORARY FRONTEND DELETE
@@ -127,15 +137,8 @@ const DoctorsTable = () => {
 
         message.success("Doctor deleted successfully");
 
-        setDoctors((previousDoctors) =>
-          previousDoctors.filter(
-            (item) => item._id !== doctor._id
-          )
-        );
 
       } catch (error) {
-
-        console.error("Error deleting doctor:", error);
 
         message.error("Unable to delete doctor");
 
@@ -195,13 +198,11 @@ const DoctorsTable = () => {
     // -----------------------------
 
     {
-      title: "  Doctor Id",
+      title: "Doctor Id",
 
       render: (_, doctor) => (
 
         <div className="flex items-center gap-2">
-
-          <FaEnvelope className="text-gray-400" />
 
           <span>
             {doctor.doctorId}
@@ -224,10 +225,8 @@ const DoctorsTable = () => {
 
         <div className="flex items-center gap-2">
 
-          <FaPhone className="text-gray-400" />
-
           <span>
-            {doctor.experience }
+            {doctor.experience}
           </span>
 
         </div>
@@ -247,7 +246,7 @@ const DoctorsTable = () => {
 
         <Tag color="cyan">
 
-          {doctor.specialization }
+          {doctor.specialization}
 
         </Tag>
 
@@ -265,8 +264,25 @@ const DoctorsTable = () => {
       render: (_, doctor) => (
 
         <span>
-          {doctor.hospitalName }
+          {doctor.hospitalName}
         </span>
+
+      ),
+    },
+
+
+    {
+      title: "Consultation Fees",
+
+      render: (_, doctor) => (
+
+        <div className="flex items-center gap-2">
+
+          <span>
+            {doctor.consultationFee}
+          </span>
+
+        </div>
 
       ),
     },
@@ -331,11 +347,12 @@ const DoctorsTable = () => {
     <section className="mt-10">
 
       <Modal
-        open={isModalOpen}
+        open={EditModalOpen}
         onCancel={handleCancel}
         footer={null}
       >
-        <Form layout={"vertical"} onFinish={onFinish}>
+        <h1 className={`${color} text-2xl text-center`}>{message}</h1>
+        <Form layout={"vertical"} onFinish={onFinish} form={form}>
           <Form.Item
             label="Name:"
             name="name"
@@ -343,42 +360,47 @@ const DoctorsTable = () => {
           >
             <Input placeholder='Enter Name' />
           </Form.Item>
-           <Form.Item
+          <Form.Item
             label="Doctor ID:"
             name="doctorId"
             rules={[{ required: true }]}
           >
             <Input placeholder='Enter Doctor ID' />
           </Form.Item>
-           <Form.Item
+          <Form.Item
             label=" Specialization:"
-            name=" specialization"
+            name="specialization"
             rules={[{ required: true }]}
           >
             <Input placeholder='Specialization' />
           </Form.Item>
-           <Form.Item
+          <Form.Item
             label="Hospital Name:"
-            name=" hospitalName"
+            name="hospitalName"
             rules={[{ required: true }]}
           >
             <Input placeholder='Enter Hospital Name' />
           </Form.Item>
-           <Form.Item
+          <Form.Item
             label="Experience:"
             name="experience"
             rules={[{ required: true }]}
           >
             <Input placeholder='Enter Experience' />
           </Form.Item>
-           <Form.Item
+          <Form.Item
             label="Consultation Fee:"
             name="consultationFee"
             rules={[{ required: true }]}
           >
             <Input placeholder='Enter Consultation Fee' />
           </Form.Item>
-          
+          <Form.Item label={null}>
+            <button className='h-10 w-full text-xl hover:rounded-2xl cursor-pointer transition ease-in-out duration-500 text-white rounded-lg bg-green-800' type='submit'>
+              Update doctor
+            </button>
+          </Form.Item>
+
         </Form>
       </Modal>
 
@@ -404,13 +426,10 @@ const DoctorsTable = () => {
           </p>
 
         </div>
-
-
-        {/* <span className="text-sm text-gray-500">
-
-          {doctors.length} doctors
-
-        </span> */}
+        <div className="flex gap-5">
+          <button className="h-10 w-30 bg-teal-700 text-white rounded-lg hover:cursor-pointer">Add Doctor</button>
+          <button className="h-10 w-30 bg-teal-700 text-white rounded-lg hover:cursor-pointer">Create User</button>
+        </div>
 
       </div>
 
