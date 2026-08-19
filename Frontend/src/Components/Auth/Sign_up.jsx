@@ -26,7 +26,7 @@ const Sign_up = () => {
             setColor("text-green-500");
 
             setTimeout(() => {
-                navigate("/");
+                navigate("/login");
             }, 1500);
 
 

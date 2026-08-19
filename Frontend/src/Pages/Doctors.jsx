@@ -14,46 +14,22 @@ const Doctors = () => {
   const [loading, setLoading] = useState(false);
 
 
-  /*
-  =====================================================
-  BACKEND - FETCH REGISTERED DOCTORS
-  =====================================================
+  // =====================================================
+  // BACKEND - FETCH REGISTERED DOCTORS
+  // =====================================================
 
-  Uncomment this section when your backend is ready.
-
-  const fetchDoctors = async () => {
-
-    try {
-
-      setLoading(true);
-
-      const response = await axios.get(
-        "http://localhost:5001/api/doctors"
-      );
-
-      setDoctors(response.data);
-
-    } catch (error) {
-
-      console.error(
-        "Error fetching doctors:",
-        error
-      );
-
-    } finally {
-
-      setLoading(false);
-
-    }
-
-  };
-
+  // Uncomment this section when your backend is ready.
 
   useEffect(() => {
-    fetchDoctors();
-  }, []);
+    axios.get("http://localhost:5173/Doctor_routes/getDoctor")
+      .then((response) => {
+        setDoctors(response.data.data)
+      })
+      .catch((error) => {
+        // setDeleteMessage(error.response.data.message)
+      })
+  }, [])
 
-  */
 
 
   return (

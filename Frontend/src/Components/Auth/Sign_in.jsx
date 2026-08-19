@@ -29,7 +29,7 @@ const Sign_in = () => {
                 );
 
                 setTimeout(() => {
-                    navigate("/dashboard");
+                    navigate("/");
                 }, 1000);
             })
             .catch((error) => {
