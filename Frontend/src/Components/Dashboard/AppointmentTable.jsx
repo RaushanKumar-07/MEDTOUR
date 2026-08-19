@@ -23,7 +23,7 @@ import {
 
 const AppoinmentTable = () => {
 
-  const [doctors, setDoctors] = useState();
+  const [appoinment, setAppoinment] = useState();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [loading, setLoading] = useState(false);
@@ -73,15 +73,15 @@ const AppoinmentTable = () => {
   // =====================================================
 
 
-  const fetchDoctors = async () => {
+  const fetchAppointment = async () => {
     try {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5001/api/Doctor_routes/getDoctor"
+        "http://localhost:5001/api/Appointment_routes/getAppointment"
       );
 
-      setDoctors(response.data.data);
+      setAppoinment(response.data.data);
 
     } catch (error) {
       console.error("Error fetching doctors:", error);
@@ -95,23 +95,23 @@ const AppoinmentTable = () => {
 
 
   useEffect(() => {
-    fetchDoctors();
+    fetchAppointment();
   }, []);
 
 
-  const handleEdit = (doctor) => {
-    console.log("Edit doctor:", doctor);
+  const handleEdit = (appoinment) => {
+    console.log("Edit doctor:", appoinment);
     setIsModalOpen(true)
   };
 
-  const handleDelete = (doctor) => {
+  const handleDelete = (appoinment) => {
 
     // TEMPORARY FRONTEND DELETE
     // This will be replaced with API call later.
 
-    setDoctors((previousDoctors) =>
-      previousDoctors.filter(
-        (item) => item._id !== doctor._id
+    setAppoinment((previousAppoinment) =>
+      previousAppoinment.filter(
+        (item) => item._id !== appoinment._id
       )
     );
 
@@ -127,9 +127,9 @@ const AppoinmentTable = () => {
 
         message.success("Doctor deleted successfully");
 
-        setDoctors((previousDoctors) =>
-          previousDoctors.filter(
-            (item) => item._id !== doctor._id
+        setAppoinment((previousAppoinment) =>
+          previousAppoinment.filter(
+            (item) => item._id !== appoinment._id
           )
         );
 
@@ -150,9 +150,9 @@ const AppoinmentTable = () => {
 
 
     {
-      title: "Doctor",
+      title: "Patient Name",
 
-      render: (_, doctor) => (
+      render: (_, appoinment) => (
 
         <div className="flex items-center gap-3">
 
@@ -175,7 +175,7 @@ const AppoinmentTable = () => {
           <div>
 
             <p className="font-semibold text-gray-800 m-0">
-              Dr. {doctor.name}
+              Dr. {appoinment.name}
             </p>
 
             <p className="text-xs text-gray-400 m-0">
@@ -195,16 +195,16 @@ const AppoinmentTable = () => {
     // -----------------------------
 
     {
-      title: "Email",
+      title: "Doctor Name",
 
-      render: (_, doctor) => (
+      render: (_, appoinment) => (
 
         <div className="flex items-center gap-2">
 
           <FaEnvelope className="text-gray-400" />
 
           <span>
-            {doctor.email}
+            {appoinment.email}
           </span>
 
         </div>
@@ -218,16 +218,16 @@ const AppoinmentTable = () => {
     // -----------------------------
 
     {
-      title: "Phone",
+      title: "Date",
 
-      render: (_, doctor) => (
+      render: (_, appoinment) => (
 
         <div className="flex items-center gap-2">
 
           <FaPhone className="text-gray-400" />
 
           <span>
-            {doctor.phone || "Not provided"}
+            {appoinment.phone || "Not provided"}
           </span>
 
         </div>
@@ -241,13 +241,13 @@ const AppoinmentTable = () => {
     // -----------------------------
 
     {
-      title: "Specialization",
+      title: "Time",
 
-      render: (_, doctor) => (
+      render: (_, appoinment) => (
 
         <Tag color="cyan">
 
-          {doctor.specialization ||
+          {appoinment.specialization ||
             "Not specified"}
 
         </Tag>
@@ -261,12 +261,12 @@ const AppoinmentTable = () => {
     // -----------------------------
 
     {
-      title: "Hospital",
+      title: "Status",
 
-      render: (_, doctor) => (
+      render: (_, appoinment) => (
 
         <span>
-          {doctor.hospital || "Not assigned"}
+          {appoinment.hospital || "Not assigned"}
         </span>
 
       ),
@@ -280,7 +280,7 @@ const AppoinmentTable = () => {
     {
       title: "Manage",
 
-      render: (_, doctor) => (
+      render: (_, appoinment) => (
 
         <div className="flex gap-2">
 
@@ -288,7 +288,7 @@ const AppoinmentTable = () => {
 
           <Button
             icon={<FaPen />}
-            onClick={() => handleEdit(doctor)}
+            onClick={() => handleEdit(appoinment)}
           >
             Edit
           </Button>
@@ -302,7 +302,7 @@ const AppoinmentTable = () => {
             okText="Yes"
             cancelText="No"
             onConfirm={() =>
-              handleDelete(doctor)
+              handleDelete(appoinment)
             }
           >
 
@@ -425,7 +425,7 @@ const AppoinmentTable = () => {
         <Table
           columns={columns}
 
-          dataSource={doctors}
+          dataSource={appoinment}
 
           rowKey="_id"
 

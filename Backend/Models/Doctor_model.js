@@ -14,10 +14,6 @@ const Doctor_Model = new Schema({
         type: String,
         required: [true, "Specialization is required"],
     },
-    hospitalId: {
-        type: String,
-        required: [true, "Hospital is required"],
-    },
     hospitalName: {
         type: String,
         required: [true, "Hospital name is required"]
