@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import api from '../../services/api';
 
-import {Table,
+import {
+  Table,
   Tag,
   Button,
   Empty,
@@ -10,9 +11,9 @@ import {Table,
   Popconfirm,
   Modal,
   Form,
- Input,
- Select,
-  
+  Input,
+  Select,
+
 } from "antd";
 
 import {
@@ -97,7 +98,7 @@ const DoctorsTable = () => {
 
     try {
       const response = await api.put(
-        "/Doctor_routes/updateDoctor",
+        "/Login_routes/Signup",
         values,
         // {
         //     withCredentials: true,
@@ -112,7 +113,7 @@ const DoctorsTable = () => {
     }
   };
 
- 
+
 
   const fetchDoctors = async () => {
     try {
@@ -152,7 +153,7 @@ const DoctorsTable = () => {
     }
   };
   const handleDelete = (doctor) => {
-   
+
 
     setDoctors((previousDoctors) =>
       previousDoctors.filter((item) => item._id !== doctor._id),
@@ -206,7 +207,7 @@ const DoctorsTable = () => {
       ),
     },
 
-    
+
 
     {
       title: "Doctor Id",
@@ -218,7 +219,7 @@ const DoctorsTable = () => {
       ),
     },
 
-    
+
 
     {
       title: " Experience",
@@ -230,14 +231,14 @@ const DoctorsTable = () => {
       ),
     },
 
-   
+
     {
       title: "Specialization",
 
       render: (_, doctor) => <Tag color="cyan">{doctor.specialization}</Tag>,
     },
 
-   
+
     {
       title: "Hospital",
 
@@ -254,20 +255,20 @@ const DoctorsTable = () => {
       ),
     },
 
-    
+
 
     {
       title: "Manage",
 
       render: (_, doctor) => (
         <div className="flex gap-2">
-         
+
 
           <Button icon={<FaPen />} onClick={() => handleEdit(doctor)}>
             Edit
           </Button>
 
-          
+
 
           <Popconfirm
             title="Delete this doctor?"
@@ -285,7 +286,7 @@ const DoctorsTable = () => {
     },
   ];
 
- 
+
   return (
     <section className="mt-10">
       <Modal open={EditModalOpen} onCancel={handleCancel} footer={null}>
@@ -340,7 +341,7 @@ const DoctorsTable = () => {
         </Form>
       </Modal>
 
-     
+
 
       <div className="flex items-end justify-between mb-5">
         <div>
@@ -417,8 +418,8 @@ const DoctorsTable = () => {
           </Modal>
 
 
-          <Modal open={CreateUserModalOpen} onCancel={ handleCreateUserModalCancel} footer={null}>
-            {" "}
+          <Modal open={CreateUserModalOpen} onCancel={handleCreateUserModalCancel} footer={null}>
+            <h1 className={`${color} text-2xl text-center`}>{message}</h1>
             <Form layout={"vertical"} onFinish={createUser}>
               <Form.Item
                 label="Full Name:"
@@ -449,30 +450,28 @@ const DoctorsTable = () => {
                   },
                 ]}
               >
-                
-                 
-               
+
                 <Input placeholder="Enter your phone number" maxLength={10} />
               </Form.Item>
-             <Form.Item
-            label="Role"
-            name="role"
-          >
-            <Select
-              size="large"
-              placeholder="Select status"
-              options={[
-                {
-                  value: "Admin",
-                  label: "Admin",
-                },
-                {
-                  value: "Doctor",
-                  label: "Doctor",
-                },
-              ]}
-            />
-          </Form.Item>
+              <Form.Item
+                label="Role"
+                name="role"
+              >
+                <Select
+                  size="large"
+                  placeholder="Select status"
+                  options={[
+                    {
+                      value: "Admin",
+                      label: "Admin",
+                    },
+                    {
+                      value: "Doctor",
+                      label: "Doctor",
+                    },
+                  ]}
+                />
+              </Form.Item>
               <Form.Item
                 label="Password:"
                 name="password"
@@ -484,10 +483,10 @@ const DoctorsTable = () => {
               </Form.Item>
               <Form.Item label={null}>
                 <button
-                  className="h-10 w-100 text-xl hover:rounded-2xl cursor-pointer transition ease-in-out duration-500 text-white rounded-lg bg-green-800"
+                  className="h-10 w-full text-xl hover:rounded-2xl cursor-pointer transition ease-in-out duration-500 text-white rounded-lg bg-green-800"
                   type="submit"
                 >
-                 Create User
+                  Create User
                 </button>
               </Form.Item>
             </Form>
@@ -500,14 +499,14 @@ const DoctorsTable = () => {
             Add Doctor
           </button>
           <button
-           onClick={() => setCreateUserModalOpen(true)}
-           className="h-10 w-30 bg-teal-700 text-white rounded-lg hover:cursor-pointer">
+            onClick={() => setCreateUserModalOpen(true)}
+            className="h-10 w-30 bg-teal-700 text-white rounded-lg hover:cursor-pointer">
             Create User
           </button>
         </div>
       </div>
 
-    
+
       <div
         className="
           bg-white
