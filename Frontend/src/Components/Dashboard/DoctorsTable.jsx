@@ -463,11 +463,11 @@ const DoctorsTable = () => {
               placeholder="Select status"
               options={[
                 {
-                  value: "admin",
+                  value: "Admin",
                   label: "Admin",
                 },
                 {
-                  value: "doctor",
+                  value: "Doctor",
                   label: "Doctor",
                 },
               ]}
