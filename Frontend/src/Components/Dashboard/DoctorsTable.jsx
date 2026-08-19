@@ -195,7 +195,7 @@ const DoctorsTable = () => {
     // -----------------------------
 
     {
-      title: "Email",
+      title: "  Doctor Id",
 
       render: (_, doctor) => (
 
@@ -204,7 +204,7 @@ const DoctorsTable = () => {
           <FaEnvelope className="text-gray-400" />
 
           <span>
-            {doctor.email}
+            {doctor.doctorId}
           </span>
 
         </div>
@@ -218,7 +218,7 @@ const DoctorsTable = () => {
     // -----------------------------
 
     {
-      title: "Phone",
+      title: " Experience",
 
       render: (_, doctor) => (
 
@@ -227,7 +227,7 @@ const DoctorsTable = () => {
           <FaPhone className="text-gray-400" />
 
           <span>
-            {doctor.phone || "Not provided"}
+            {doctor.experience }
           </span>
 
         </div>
@@ -265,7 +265,7 @@ const DoctorsTable = () => {
       render: (_, doctor) => (
 
         <span>
-          {doctor.hospital || "Not assigned"}
+          {doctor.hospitalName }
         </span>
 
       ),
