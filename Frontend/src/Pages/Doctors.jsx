@@ -6,6 +6,7 @@ import React, {
 import axios from "axios";
 
 import DoctorsList from "../Components/Doctors/DoctorsList";
+import api from "../services/api";
 
 
 const Doctors = () => {
@@ -16,7 +17,7 @@ const Doctors = () => {
 
 
   useEffect(() => {
-    axios.get("http://localhost:5001/api/Doctor_routes/getDoctor")
+    api.get("/Doctor_routes/getDoctor")
       .then((response) => {
         setDoctors(response.data.data)
       })

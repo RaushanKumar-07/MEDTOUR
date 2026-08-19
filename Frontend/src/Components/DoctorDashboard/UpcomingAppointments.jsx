@@ -139,7 +139,6 @@ const UpcomingAppointments = ({ appointments = [] }) => {
   return (
     <section>
 
-<<<<<<< HEAD
       <div
         className="
           bg-white
@@ -149,9 +148,6 @@ const UpcomingAppointments = ({ appointments = [] }) => {
           overflow-hidden
         "
       >
-=======
-      
->>>>>>> 20ea5c0f800e44ccd749c345bf4d27c317417d20
 
         <Table
           columns={columns}
@@ -180,9 +176,6 @@ const UpcomingAppointments = ({ appointments = [] }) => {
         />
 
       </div>
-<<<<<<< HEAD
-=======
-
 
       
 
@@ -371,7 +364,6 @@ const UpcomingAppointments = ({ appointments = [] }) => {
 
       )}
 
->>>>>>> 20ea5c0f800e44ccd749c345bf4d27c317417d20
     </section>
   );
 };

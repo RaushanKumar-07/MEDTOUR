@@ -4,6 +4,7 @@ import DoctorAppointmentStats from "../Components/DoctorDashboard/DoctorAppointm
 import UpcomingAppointments from "../Components/DoctorDashboard/UpcomingAppointments";
 import { message } from "antd";
 import axios from "axios";
+import api from "../services/api";
 
 
 const DoctorDashboard = () => {
@@ -14,8 +15,8 @@ const DoctorDashboard = () => {
     try {
       setLoading(true);
 
-      const response = await axios.get(
-        "http://localhost:5001/api/Appointment_routes/getAppointment"
+      const response = await api.get(
+        "/Appointment_routes/getAppointment"
       );
 
       setAppointments(response.data.data);
@@ -39,10 +40,6 @@ const DoctorDashboard = () => {
   // UPCOMING APPOINTMENTS
   // =====================================================
 
-  const upcomingAppointments = appointments.filter(
-    (appointment) =>
-      appointment.status === "Upcoming"
-  );
 
 
   return (

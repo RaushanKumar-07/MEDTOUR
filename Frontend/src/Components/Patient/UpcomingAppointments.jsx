@@ -139,11 +139,6 @@ const UpcomingAppointments = ({ appointments = []}) => {
   return (
     <section className="mb-10">
 
-<<<<<<< HEAD
-=======
-      
->>>>>>> 20ea5c0f800e44ccd749c345bf4d27c317417d20
-
       <div
         className="
           bg-white
@@ -181,11 +176,6 @@ const UpcomingAppointments = ({ appointments = []}) => {
         />
 
       </div>
-
-<<<<<<< HEAD
-=======
-
-      
 
       {appointments.length === 0 ? (
 
@@ -374,7 +364,6 @@ const UpcomingAppointments = ({ appointments = []}) => {
 
       )}
 
->>>>>>> 20ea5c0f800e44ccd749c345bf4d27c317417d20
     </section>
   );
 };

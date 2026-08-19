@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import PatientProfile from "../Components/Patient/PatientProfile";
 import UpcomingAppointments from "../Components/Patient/UpcomingAppointments";
+import api from "../services/api";
 
 
 const PatientDashboard = () => {
@@ -14,8 +15,8 @@ const PatientDashboard = () => {
     try {
       setLoading(true);
 
-      const response = await axios.get(
-        "http://localhost:5001/api/Appointment_routes/getAppointment"
+      const response = await api.get(
+        "/Appointment_routes/getAppointment"
       );
 
       setAppointments(response.data.data);
@@ -76,19 +77,9 @@ const PatientDashboard = () => {
        
 
         <UpcomingAppointments
-<<<<<<< HEAD
           appointments={appointments}
-=======
-          appointments={upcomingAppointments}
         />
 
-
-        
-
-        <RecentAppointments
-          appointments={recentAppointments}
->>>>>>> 20ea5c0f800e44ccd749c345bf4d27c317417d20
-        />
 
       </main>
 

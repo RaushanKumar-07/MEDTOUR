@@ -4,6 +4,7 @@ import help_logo from '../assets/help_logo.png'
 import call_logo from '../assets/call_logo.png'
 import mail_logo from '../assets/mail_logo.png'
 import axios from 'axios';
+import api from '../services/api';
 
 const Appointment = () => {
     const [form] = Form.useForm();
@@ -22,7 +23,7 @@ const Appointment = () => {
             message: values.message,
         };
 
-        axios.post("http://localhost:5001/api/Appointment_routes/addAppointment", appointmentData)
+        api.post("/Appointment_routes/addAppointment", appointmentData)
             .then((res) => {
                 setMessage(res.data.message)
                 setColor("text-green-500")

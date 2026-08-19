@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
-import api from '../services/api';
+import api from '../../services/api';
 
 import {
   Table,

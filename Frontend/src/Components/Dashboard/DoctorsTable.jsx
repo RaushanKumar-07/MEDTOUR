@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from '../../services/api';
 
 import {Table,
   Tag,
@@ -52,8 +53,8 @@ const DoctorsTable = () => {
     console.log("Sending:", values);
 
     try {
-      const response = await axios.put(
-        `http://localhost:5001/api/Doctor_routes/updateDoctor/${Id}`,
+      const response = await api.put(
+        `/Doctor_routes/updateDoctor/${Id}`,
         values,
         // {
         //     withCredentials: true,
@@ -72,8 +73,8 @@ const DoctorsTable = () => {
     console.log("Sending:", values);
 
     try {
-      const response = await axios.put(
-        `http://localhost:5001/api/Doctor_routes/updateDoctor/${Id}`,
+      const response = await api.post(
+        "/Doctor_routes/addDoctor",
         values,
         // {
         //     withCredentials: true,
@@ -92,8 +93,8 @@ const DoctorsTable = () => {
     console.log("Sending:", values);
 
     try {
-      const response = await axios.put(
-        `http://localhost:5001/api/Doctor_routes/updateDoctor/${Id}`,
+      const response = await api.put(
+        "/Doctor_routes/updateDoctor",
         values,
         // {
         //     withCredentials: true,
@@ -114,8 +115,8 @@ const DoctorsTable = () => {
     try {
       setLoading(true);
 
-      const response = await axios.get(
-        "http://localhost:5001/api/Doctor_routes/getDoctor",
+      const response = await api.get(
+        "/Doctor_routes/getDoctor",
       );
 
       setDoctors(response.data.data);
@@ -158,8 +159,8 @@ const DoctorsTable = () => {
 
     const deleteDoctor = async () => {
       try {
-        await axios.delete(
-          `http://localhost:5001/api/Doctor_routes/deleteDoctor/${doctor._id}`,
+        await api.delete(
+          `/Doctor_routes/deleteDoctor/${doctor._id}`,
         );
 
         message.success("Doctor deleted successfully");
