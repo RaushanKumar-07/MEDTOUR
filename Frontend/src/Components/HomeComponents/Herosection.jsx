@@ -19,7 +19,7 @@ const Herosection = () => {
             </span>
           </h1>
 
-          <p className="mt-5 max-w-[650px] text-base leading-7 text-slate-600 sm:text-lg">
+          <p className="mt-5 max-w-162.5 text-base leading-7 text-slate-600 sm:text-lg">
             Discover world-class hospitals, expert doctors and
             <br className="hidden sm:block" />
             affordable treatments in India.
@@ -30,7 +30,7 @@ const Herosection = () => {
         </div>
 
         {/* Right Image */}
-        <div className="relative z-10  hidden h-[520px] lg:block">
+        <div className="relative z-10  hidden h-130 lg:block">
 
           <div className="absolute insert-y-0 right-0  w-full overflow-hidden rounded-[45%]">
             <img

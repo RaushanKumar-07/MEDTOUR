@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Card, Tag } from "antd";
-import { MedicineBoxOutlined } from "@ant-design/icons";
+
 
 const TreatmentCard = ({
   title,
@@ -19,8 +19,8 @@ const TreatmentCard = ({
       className="
         overflow-hidden
         rounded-2xl
-        !border
-        !border-gray-300
+        border
+        border-gray-300
         bg-white
         shadow-sm
       "
@@ -33,34 +33,14 @@ const TreatmentCard = ({
           src={image}
           alt={title}
           className="
-            h-[150px]
+            h-37.5
             w-full
             rounded-xl
             object-cover
           "
         />
 
-        {/* Icon */}
-        <Tag
-          bordered={false}
-          className="
-            absolute
-            bottom-4
-            right-4
-            m-0
-            grid
-            h-9
-            w-9
-            place-items-center
-            rounded-full
-            bg-white/95
-            p-0
-            text-[#0f8b7d]
-            shadow-sm
-          "
-        >
-          <MedicineBoxOutlined />
-        </Tag>
+       
 
       </div>
 
