@@ -5,7 +5,7 @@ export default function TreatmentCard({ item }) {
     <article className="flex flex-col md:flex-row items-center justify-between bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow gap-6">
       
       
-      <div className="w-full md:w-48 h-36 flex-shrink-0">
+      <div className="w-full md:w-48 h-36 shrink-0">
         <img
           src={item.image}
           alt={item.treatmentTitle}

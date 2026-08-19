@@ -9,7 +9,7 @@ const Forget_password = () => {
     const navigate = useNavigate();
     const onFinish = values => {
         console.log('Success:', values);
-        axios.get("http://localhost:5001/api/Login_routes/Forget", values)
+        axios.get("https://medtour.onrender.com/api/Login_routes/Forget", values)
         .then((response)=>{
             console.log("Response:",response.data.message)
             setmessage(response.data.message)

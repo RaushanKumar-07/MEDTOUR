@@ -69,9 +69,6 @@ const Doctors = () => {
 
         </div>
 
-
-        
-
         <DoctorsList
           doctors={doctors}
           loading={loading}

@@ -35,13 +35,6 @@ const DoctorDashboard = () => {
     fetchAppointments();
   }, []);
 
-
-  // =====================================================
-  // UPCOMING APPOINTMENTS
-  // =====================================================
-
-
-
   return (
     <div className="min-h-screen bg-gray-50">
 
@@ -57,11 +50,8 @@ const DoctorDashboard = () => {
       >
 
         
-
         <DoctorProfile/>
 
-
-       
 
         <div className="mb-6">
 

@@ -27,7 +27,7 @@ const Sign_in = () => {
                     "token",
                     response.data.accessToken
                 );
-                
+
                 window.dispatchEvent(new Event("userLogin"));
 
                 setTimeout(() => {
@@ -44,7 +44,7 @@ const Sign_in = () => {
     };
 
     const verifyEmail = (values) => {
-        axios.post("http://localhost:5001/api/Login_routes/verifyEmail", values)
+        axios.post("https://medtour.onrender.com/api/Login_routes/verifyEmail", values)
             .then((res) => {
                 setVerifyMessage(res.data.message)
                 setColor("text-green-500")

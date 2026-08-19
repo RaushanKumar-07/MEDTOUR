@@ -13,7 +13,7 @@ const Sign_up = () => {
 
         try {
             const response = await axios.post(
-                "http://localhost:5001/api/Login_routes/Signup",
+                "https://medtour.onrender.com/api/Login_routes/Signup",
                 values,
                 {
                     withCredentials: true,

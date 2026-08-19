@@ -18,10 +18,6 @@ import AppoinmentTable from "../../Components/Dashboard/AppointmentTable";
 const AdminDashboard = () => {
 
 
-  // =====================================================
-  // ADMIN LOGIN DETAILS - BACKEND WILL BE CONNECTED LATER
-  // =====================================================
-
   const [admin, setAdmin] = useState(null);
   const [loadingAdmin, setLoadingAdmin] = useState(true);
 
@@ -69,11 +65,6 @@ const AdminDashboard = () => {
         "
       >
 
-
-        {/* =====================================================
-            STATISTICS
-            ===================================================== */}
-
         <div
           className="
             grid
@@ -114,11 +105,6 @@ const AdminDashboard = () => {
           />
 
         </div>
-
-
-        {/* =====================================================
-            REGISTERED DOCTORS
-            ===================================================== */}
 
         <DoctorsTable />
         <AppoinmentTable />
