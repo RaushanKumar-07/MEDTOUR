@@ -247,8 +247,7 @@ const DoctorsTable = () => {
 
         <Tag color="cyan">
 
-          {doctor.specialization ||
-            "Not specified"}
+          {doctor.specialization }
 
         </Tag>
 
@@ -338,42 +337,48 @@ const DoctorsTable = () => {
       >
         <Form layout={"vertical"} onFinish={onFinish}>
           <Form.Item
-            label="Full Name:"
-            name="fullName"
-            rules={[{ required: true, message: 'Please input your Full name!' }]}
+            label="Name:"
+            name="name"
+            rules={[{ required: true }]}
           >
-            <Input placeholder='Enter your full name' />
+            <Input placeholder='Enter Name' />
           </Form.Item>
-          <Form.Item
-            label="Email:"
-            name="email"
-            rules={[{ required: true, message: 'Please input your email!' }]}
+           <Form.Item
+            label="Doctor ID:"
+            name="doctorId"
+            rules={[{ required: true }]}
           >
-            <Input placeholder='Enter your email' />
+            <Input placeholder='Enter Doctor ID' />
           </Form.Item>
-          <Form.Item
-            label="Phone:"
-            name="phone"
-            rules={[{
-              required: true,
-              pattern: /^[0-9]{10}$/,
-              message: "Mobile number must contain exactly 10 digits!",
-            },]}
+           <Form.Item
+            label=" Specialization:"
+            name=" specialization"
+            rules={[{ required: true }]}
           >
-            <Input placeholder='Enter your phone number' maxLength={10} />
+            <Input placeholder='Specialization' />
           </Form.Item>
-          <Form.Item
-            label="Password:"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+           <Form.Item
+            label="Hospital Name:"
+            name=" hospitalName"
+            rules={[{ required: true }]}
           >
-            <Input.Password placeholder='Create your password' />
+            <Input placeholder='Enter Hospital Name' />
           </Form.Item>
-          <Form.Item label={null}>
-            <button className='h-10 w-full text-xl hover:rounded-2xl cursor-pointer transition ease-in-out duration-500 text-white rounded-lg bg-green-800' type='submit'>
-              Update doctor
-            </button>
+           <Form.Item
+            label="Experience:"
+            name="experience"
+            rules={[{ required: true }]}
+          >
+            <Input placeholder='Enter Experience' />
           </Form.Item>
+           <Form.Item
+            label="Consultation Fee:"
+            name="consultationFee"
+            rules={[{ required: true }]}
+          >
+            <Input placeholder='Enter Consultation Fee' />
+          </Form.Item>
+          
         </Form>
       </Modal>
 
