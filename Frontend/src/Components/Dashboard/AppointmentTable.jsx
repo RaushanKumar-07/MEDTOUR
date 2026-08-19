@@ -386,11 +386,11 @@ const AppoinmentTable = () => {
               text-gray-800
             "
           >
-            Registered Doctors
+            Registered Appointments
           </h2>
 
           <p className="text-sm text-gray-500 mt-1">
-            Doctors registered on MedTour
+            appointment registered on MedTour
           </p>
 
         </div>
