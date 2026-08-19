@@ -32,16 +32,16 @@ const UpdateValidation = Joi.object({
 }).min(1);
 
 const AppointmentValidation = Joi.object({
-    patientName: Joi.string().required(),
-    email: Joi.string().required(),
-    phone: Joi.string().required(),
-    country: Joi.string().required(),
-    preferredDate: Joi.string().required(),
-    treatment: Joi.string().required(),
+    patientName: Joi.string(),
+    email: Joi.string(),
+    phone: Joi.string(),
+    country: Joi.string(),
+    preferredDate: Joi.string(),
+    treatment: Joi.string(),
     doctorName: Joi.string(),
-    message: Joi.string().required(),
+    message: Joi.string(),
     time: Joi.string(),
-    status: Joi.string
+    status: Joi.string()
 })
 
 const HospitalValidation = Joi.object({
