@@ -57,7 +57,6 @@ const DoctorValidation = Joi.object({
     name: Joi.string().required(),
     doctorId: Joi.string().required(),
     specialization: Joi.string().required(),
-    hospitalId: Joi.string().required(),
     hospitalName: Joi.string().required(),
     experience: Joi.string().required(),
     consultationFee: Joi.string().required(),
