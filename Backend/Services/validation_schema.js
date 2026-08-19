@@ -11,6 +11,7 @@ const SignupValidation = Joi.object({
     email: Joi.string().email().required(),
     phone: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
     password: Joi.string().required().min(8),
+    role: Joi.string()
 })
 
 const ForgetValidation = Joi.object({

@@ -8,13 +8,12 @@ const sendEmail = require("../Services/Email_service")
 const Signup = async (req, res) => {
     try {
         const details = await SignupValidation.validateAsync(req.body)
-        const { fullName, email, phone ,password } = details
 
         //Checking MongoDB step
         const checkUser = await Signup_Model.findOne({
             $or: [
-                { email },
-                { phone }
+                { email:details.email },
+                { phone:details.phone }
             ]
         })
 
@@ -25,12 +24,13 @@ const Signup = async (req, res) => {
             })
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10)
+        const hashedPassword = await bcrypt.hash(details.password, 10)
         //validation step
         const user = new Signup_Model({
-            fullName,
-            email,
-            phone,
+            fullName:details.fullName,
+            email: details.email,
+            phone: details.phone,
+            role: details.role || "Patient",
             password: hashedPassword
         })
 
@@ -43,22 +43,22 @@ const Signup = async (req, res) => {
         const otpHash = await bcrypt.hash(otp, 10)
 
         const otpModel = new Otp_model({
-            email,
+            email:details.email,
             user: user._id,
             otpHash
         })
 
         await otpModel.save();
 
-        sendEmail(email, "OTP Verification", `Your OTP code is ${otp}`, html)
+        sendEmail(details.email, "OTP Verification", `Your OTP code is ${otp}`, html)
 
         res.status(201).json({
             message: "User Registered Successfully..",
             success: true,
             data: {
-                fullName,
-                email,
-                phone,
+                fullName:user.fullName,
+                email:user.email,
+                phone:user.phone,
                 role: user.role,
                 verified: user.verified
             }

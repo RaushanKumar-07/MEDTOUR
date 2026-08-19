@@ -6,18 +6,7 @@ const Hospital_model = require("../Models/Hospital_model")
 const Add_doctor = async (req, res) => {
     try {
         const details = await DoctorValidation.validateAsync(req.body)
-        const { name, specialization, hospitalId, doctorId, hospitalName, experience, consultationFee } = details
-
-        const checkHospital = await Hospital_model.findOne({
-            hospitalId,
-        })
-
-        if (!checkHospital) {
-            return res.status(400).json({
-                success: false,
-                message: "Hospital is not added"
-            })
-        }
+        const { name, specialization, doctorId, hospitalName, experience, consultationFee } = details
 
         const checkDoctor = await Doctor_model.findOne({
             doctorId,
@@ -35,7 +24,6 @@ const Add_doctor = async (req, res) => {
             name,
             doctorId,
             specialization,
-            hospitalId,
             hospitalName,
             experience,
             consultationFee,

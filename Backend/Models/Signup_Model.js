@@ -22,7 +22,7 @@ const Signup_Model = new Schema({
     },
     role: {
         type: String,
-        default: 'Patient'
+        required: [true, "Role is required"]
     },
     verified: {
         type: Boolean,
