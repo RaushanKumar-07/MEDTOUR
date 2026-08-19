@@ -15,8 +15,7 @@ const Doctor_Model = new Schema({
         required: [true, "Specialization is required"],
     },
     hospitalId: {
-        type: Schema.ObjectId,
-        ref: "hospitals",
+        type: String,
         required: [true, "Hospital is required"],
     },
     hospitalName: {
