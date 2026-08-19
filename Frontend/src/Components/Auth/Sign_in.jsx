@@ -27,10 +27,14 @@ const Sign_in = () => {
                     "token",
                     response.data.accessToken
                 );
+                
+                window.dispatchEvent(new Event("userLogin"));
 
                 setTimeout(() => {
                     navigate("/");
                 }, 1000);
+
+                
             })
             .catch((error) => {
                 console.log("Error:", error.response.data.message)
