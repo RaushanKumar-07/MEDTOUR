@@ -9,7 +9,7 @@ const Register = () => {
                 <div className='flex gap-3 items-center'>
                     <img src={logo} alt="logo" className='h-20 w-20 rounded-full' />
                     <div className='flex flex-col gap-1'>
-                        <h1 className='text-4xl'>Medi Journey</h1>
+                        <h1 className='text-4xl'>MedTour</h1>
                         <p>Care,treatment and a smooth medical journey</p>
                     </div>
                 </div>

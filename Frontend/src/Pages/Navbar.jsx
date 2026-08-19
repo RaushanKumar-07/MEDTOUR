@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../assets/logo.png"
 import {
   FiChevronDown,
   FiMenu,
@@ -128,7 +128,7 @@ useEffect(() => {
         <div className="flex min-w-0 shrink-0 items-center gap-2.5 sm:gap-3 lg:w-67.5 xl:w-75">
 
           <div className="flex h-10 w-10 items-center justify-center text-[#087D80] sm:h-11 sm:w-11">
-            <FiHeart className="text-3xl sm:text-[34px]" />
+          <img src={logo} alt="logo" className='h-12 w-18 rounded-full' />
           </div>
 
           <div className="min-w-0">

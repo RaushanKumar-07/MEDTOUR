@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../assets/logo.png"
 import {
   FiHeart,
   FiMapPin,
@@ -76,7 +76,7 @@ const Footer = () => {
               className="flex items-center gap-3"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-[#087D80]">
-                <FiHeart className="text-2xl" />
+             <img src={logo} alt="logo" className='h-12 w-18 rounded-full' />
               </div>
 
               <span className="text-2xl font-bold tracking-wide">
