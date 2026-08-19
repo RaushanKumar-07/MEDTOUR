@@ -9,6 +9,7 @@ const Doctor_Model = new Schema({
     doctorId: {
         type: String,
         required: [true, "Doctor id is required"],
+        
     },
     specialization: {
         type: String,
