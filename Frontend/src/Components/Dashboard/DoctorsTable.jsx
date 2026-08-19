@@ -108,11 +108,7 @@ const DoctorsTable = () => {
     }
   };
 
-  // =====================================================
-  // BACKEND FETCHING
-  // =====================================================
-  // Uncomment this section when backend is created.
-  // =====================================================
+ 
 
   const fetchDoctors = async () => {
     try {
@@ -152,8 +148,7 @@ const DoctorsTable = () => {
     }
   };
   const handleDelete = (doctor) => {
-    // TEMPORARY FRONTEND DELETE
-    // This will be replaced with API call later.
+   
 
     setDoctors((previousDoctors) =>
       previousDoctors.filter((item) => item._id !== doctor._id),
@@ -207,9 +202,7 @@ const DoctorsTable = () => {
       ),
     },
 
-    // -----------------------------
-    // EMAIL
-    // -----------------------------
+    
 
     {
       title: "Doctor Id",
@@ -221,9 +214,7 @@ const DoctorsTable = () => {
       ),
     },
 
-    // -----------------------------
-    // PHONE
-    // -----------------------------
+    
 
     {
       title: " Experience",
@@ -235,20 +226,14 @@ const DoctorsTable = () => {
       ),
     },
 
-    // -----------------------------
-    // SPECIALIZATION
-    // -----------------------------
-
+   
     {
       title: "Specialization",
 
       render: (_, doctor) => <Tag color="cyan">{doctor.specialization}</Tag>,
     },
 
-    // -----------------------------
-    // HOSPITAL
-    // -----------------------------
-
+   
     {
       title: "Hospital",
 
@@ -265,22 +250,20 @@ const DoctorsTable = () => {
       ),
     },
 
-    // -----------------------------
-    // MANAGE
-    // -----------------------------
+    
 
     {
       title: "Manage",
 
       render: (_, doctor) => (
         <div className="flex gap-2">
-          {/* EDIT */}
+         
 
           <Button icon={<FaPen />} onClick={() => handleEdit(doctor)}>
             Edit
           </Button>
 
-          {/* DELETE */}
+          
 
           <Popconfirm
             title="Delete this doctor?"
@@ -298,10 +281,7 @@ const DoctorsTable = () => {
     },
   ];
 
-  // =====================================================
-  // UI
-  // =====================================================
-
+ 
   return (
     <section className="mt-10">
       <Modal open={EditModalOpen} onCancel={handleCancel} footer={null}>
@@ -356,7 +336,7 @@ const DoctorsTable = () => {
         </Form>
       </Modal>
 
-      {/* ================= HEADER ================= */}
+     
 
       <div className="flex items-end justify-between mb-5">
         <div>
@@ -523,8 +503,7 @@ const DoctorsTable = () => {
         </div>
       </div>
 
-      {/* ================= TABLE ================= */}
-
+    
       <div
         className="
           bg-white

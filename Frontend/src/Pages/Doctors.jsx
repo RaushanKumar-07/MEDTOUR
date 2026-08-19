@@ -14,11 +14,6 @@ const Doctors = () => {
   const [loading, setLoading] = useState(false);
 
 
-  // =====================================================
-  // BACKEND - FETCH REGISTERED DOCTORS
-  // =====================================================
-
-  // Uncomment this section when your backend is ready.
 
   useEffect(() => {
     axios.get("http://localhost:5001/api/Doctor_routes/getDoctor")
@@ -46,7 +41,7 @@ const Doctors = () => {
         "
       >
 
-        {/* PAGE HEADER */}
+       
 
         <div className="mb-8">
 
@@ -74,7 +69,7 @@ const Doctors = () => {
         </div>
 
 
-        {/* DOCTORS LIST */}
+        
 
         <DoctorsList
           doctors={doctors}

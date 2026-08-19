@@ -59,7 +59,6 @@ export const treatmentsData = [
     startingPrice: "15,000"
   },
 
-  // 2. Cosmetic & Plastic Surgery
   {
     id: 5,
     image: tmt5,
@@ -73,7 +72,6 @@ export const treatmentsData = [
     startingPrice: "75,000"
   },
 
-  // 3. Fertility / IVF
   {
     id: 6,
     image: tmt6,
@@ -87,7 +85,6 @@ export const treatmentsData = [
     startingPrice: "1,20,000"
   },
 
-  // 4. Cardiac Care
   {
     id: 7,
     image: tmt7,
@@ -101,7 +98,7 @@ export const treatmentsData = [
     startingPrice: "2,50,000"
   },
 
-  // 5. Orthopedics & Joint Replacement
+
   {
     id: 8,
     image: tmt8,
@@ -115,7 +112,7 @@ export const treatmentsData = [
     startingPrice: "1,80,000"
   },
 
-  // 6. Ophthalmology / Eye Care
+  
   {
     id: 9,
     image: tmt9,
@@ -129,7 +126,7 @@ export const treatmentsData = [
     startingPrice: "35,000"
   },
 
-  // 7. Bariatric & Metabolic Surgery
+  
   {
     id: 10,
     image: tmt10,

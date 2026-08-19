@@ -14,7 +14,7 @@ const RecentAppointments = ({ appointments = [] }) => {
   return (
     <section>
 
-      {/* HEADER */}
+     
 
       <div className="flex items-center gap-2 mb-5">
 
@@ -27,7 +27,7 @@ const RecentAppointments = ({ appointments = [] }) => {
       </div>
 
 
-      {/* TABLE */}
+      
 
       <div
         className="
@@ -103,7 +103,7 @@ const RecentAppointments = ({ appointments = [] }) => {
                     "
                   >
 
-                    {/* DOCTOR */}
+                    
 
                     <td className="px-5 py-4">
 
@@ -120,14 +120,14 @@ const RecentAppointments = ({ appointments = [] }) => {
                     </td>
 
 
-                    {/* SPECIALIZATION */}
+                    
 
                     <td className="px-5 py-4 text-sm text-gray-600">
                       {appointment.specialization}
                     </td>
 
 
-                    {/* HOSPITAL */}
+                    
 
                     <td className="px-5 py-4 text-sm text-gray-600">
 
@@ -142,14 +142,14 @@ const RecentAppointments = ({ appointments = [] }) => {
                     </td>
 
 
-                    {/* DATE */}
+                    
 
                     <td className="px-5 py-4 text-sm text-gray-600">
                       {appointment.date}
                     </td>
 
 
-                    {/* STATUS */}
+                    
 
                     <td className="px-5 py-4">
 

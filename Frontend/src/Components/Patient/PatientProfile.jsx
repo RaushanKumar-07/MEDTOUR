@@ -20,7 +20,6 @@ const PatientProfile = ({ patient }) => {
       "
     >
 
-      {/* PROFILE HEADER */}
 
       <div className="flex items-center gap-4">
 
@@ -82,7 +81,7 @@ const PatientProfile = ({ patient }) => {
       </div>
 
 
-      {/* LOGIN DETAILS */}
+      
 
       <div
         className="
@@ -97,7 +96,7 @@ const PatientProfile = ({ patient }) => {
         "
       >
 
-        {/* EMAIL */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -131,7 +130,7 @@ const PatientProfile = ({ patient }) => {
         </div>
 
 
-        {/* PHONE */}
+        
 
         <div className="flex items-center gap-3">
 

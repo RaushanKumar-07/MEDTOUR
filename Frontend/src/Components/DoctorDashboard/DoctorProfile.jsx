@@ -21,7 +21,7 @@ const DoctorProfile = ({ doctor }) => {
       "
     >
 
-      {/* PROFILE HEADER */}
+      
 
       <div className="flex items-center gap-4">
 
@@ -86,7 +86,7 @@ const DoctorProfile = ({ doctor }) => {
       </div>
 
 
-      {/* DOCTOR DETAILS */}
+      
 
       <div
         className="
@@ -102,8 +102,7 @@ const DoctorProfile = ({ doctor }) => {
         "
       >
 
-        {/* EMAIL */}
-
+        
         <div className="flex items-center gap-3">
 
           <div
@@ -136,7 +135,7 @@ const DoctorProfile = ({ doctor }) => {
         </div>
 
 
-        {/* PHONE */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -170,7 +169,7 @@ const DoctorProfile = ({ doctor }) => {
         </div>
 
 
-        {/* HOSPITAL */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -204,7 +203,7 @@ const DoctorProfile = ({ doctor }) => {
         </div>
 
 
-        {/* SPECIALIZATION */}
+        
 
         <div className="sm:col-span-2 lg:col-span-3">
 

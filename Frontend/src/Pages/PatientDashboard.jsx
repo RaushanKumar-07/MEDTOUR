@@ -95,14 +95,14 @@ const PatientDashboard = () => {
         "
       >
 
-        {/* PATIENT PROFILE */}
+        
 
         <PatientProfile
           patient={patient}
         />
 
 
-        {/* PAGE HEADER */}
+        
 
         <div className="mb-6">
 
@@ -121,14 +121,14 @@ const PatientDashboard = () => {
         </div>
 
 
-        {/* UPCOMING */}
+       
 
         <UpcomingAppointments
           appointments={upcomingAppointments}
         />
 
 
-        {/* RECENT */}
+        
 
         <RecentAppointments
           appointments={recentAppointments}

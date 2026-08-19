@@ -15,7 +15,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
   return (
     <section>
 
-      {/* SECTION HEADER */}
+      
 
       <div className="flex items-center gap-2 mb-5">
 
@@ -28,7 +28,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
       </div>
 
 
-      {/* EMPTY STATE */}
+      
 
       {appointments.length === 0 ? (
 
@@ -75,7 +75,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
               "
             >
 
-              {/* PATIENT */}
+             
 
               <div
                 className="
@@ -129,8 +129,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
               </div>
 
 
-              {/* APPOINTMENT INFORMATION */}
-
+              
               <div
                 className="
                   grid
@@ -144,7 +143,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
                 "
               >
 
-                {/* DATE */}
+                
 
                 <div className="flex items-center gap-3">
 
@@ -165,7 +164,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
                 </div>
 
 
-                {/* TIME */}
+                
 
                 <div className="flex items-center gap-3">
 
@@ -186,7 +185,7 @@ const UpcomingAppointments = ({ appointments = [] }) => {
                 </div>
 
 
-                {/* HOSPITAL */}
+                
 
                 <div className="flex items-center gap-3">
 

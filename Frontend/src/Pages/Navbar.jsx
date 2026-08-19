@@ -95,13 +95,13 @@ useEffect(() => {
     }
   };
 
-  // Check when Navbar loads
+ 
   loadUser();
 
-  // Listen for login event
+  
   window.addEventListener("userLogin", loadUser);
 
-  // Listen for logout event
+  
   window.addEventListener("userLogout", loadUser);
 
   return () => {
