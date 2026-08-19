@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
 
@@ -19,6 +19,7 @@ const Navbar = ({
   userImage = "",
   onMenuClick,
 }) => {
+  const [user, setUser] = useState();
   const navigate = useNavigate();
 
   const navItems = [
@@ -38,19 +39,14 @@ const Navbar = ({
       label: "Doctors",
       path: "/doctors",
     },
-    
+
   ];
 
   const profileMenu = [
     {
-      key: "profile",
-      label: "My Profile",
+      key: "dashboard",
+      label: "My Dashboard",
       icon: <FiUser />,
-    },
-    {
-      key: "settings",
-      label: "Settings",
-      icon: <FiSettings />,
     },
     {
       type: "divider",
@@ -68,24 +64,43 @@ const Navbar = ({
   };
 
   const handleProfileMenu = ({ key }) => {
-    if (key === "profile") {
-      navigate("/profile");
-    }
-
-    if (key === "settings") {
-      navigate("/settings");
+    if (key === "dashboard") {
+      if (user.role === "Admin") {
+        navigate("/Admin-dashboard");
+      } else if (user.role === "Doctor") {
+        navigate("/Doctor-dashboard");
+      } else if (user.role === "Patient") {
+        navigate("/Patient-dashboard");
+      }
     }
 
     if (key === "logout") {
-      console.log("User logged out");
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+
+      setUser(null);
+
+      navigate("/login");
     }
   };
+
+ useEffect(() => {
+  const storedUser = localStorage.getItem("user");
+
+  if (storedUser) {
+    const parsedUser = JSON.parse(storedUser);
+
+    setUser(parsedUser);
+
+    console.log(parsedUser);
+  }
+}, []);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white">
       <div className="flex min-h-18 items-center px-4 sm:px-6 lg:min-h-22 lg:px-8 xl:px-10">
 
-   
+
         <button
           type="button"
           onClick={onMenuClick}
@@ -95,7 +110,7 @@ const Navbar = ({
           <FiMenu />
         </button>
 
-    
+
         <div className="flex min-w-0 shrink-0 items-center gap-2.5 sm:gap-3 lg:w-67.5 xl:w-75">
 
           <div className="flex h-10 w-10 items-center justify-center text-[#087D80] sm:h-11 sm:w-11">
@@ -114,7 +129,7 @@ const Navbar = ({
 
         </div>
 
-     
+
         <nav className="hidden flex-1 items-center justify-center gap-4 xl:flex 2xl:gap-7 ">
 
           {navItems.map((item) => (
@@ -130,10 +145,10 @@ const Navbar = ({
 
         </nav>
 
-      
+
         <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
 
-        
+
           <button
             type="button"
             onClick={() => navigate("/appointment")}
@@ -150,12 +165,12 @@ const Navbar = ({
             </span>
           </button>
 
-  
-          {!isLoggedIn && (
+
+          {!user && (
             <button
               type="button"
               onClick={() => navigate("/login")}
-              className="flex items-center gap-2 rounded-xl border border-[#087D80] px-3 py-2.5 text-sm font-semibold text-[#087D80] transition hover:bg-[#087D80] hover:text-white sm:px-4 sm:text-base hover:cursor-pointer"
+              className="flex items-center gap-2 rounded-xl border border-[#087D80] px-3 py-2.5 text-sm font-semibold text-[#087D80]"
             >
               <FiLogIn />
 
@@ -165,8 +180,8 @@ const Navbar = ({
             </button>
           )}
 
-       
-          {isLoggedIn && (
+
+          {user && (
             <Dropdown
               menu={{
                 items: profileMenu,
@@ -177,20 +192,18 @@ const Navbar = ({
             >
               <button
                 type="button"
-                className="flex items-center gap-2 rounded-xl px-1.5 py-1.5 transition hover:bg-slate-50 sm:gap-3 sm:px-2"
+                className="flex items-center gap-2"
               >
                 <Avatar
                   size={42}
-                  src={userImage || undefined}
                   icon={<FiUser />}
-                  className="shrink-0"
                 />
 
-                <span className="hidden max-w-35 truncate font-semibold text-slate-900 sm:block">
-                  {userName}
+                <span className="hidden sm:block">
+                  {user.fullName}
                 </span>
 
-                <FiChevronDown className="hidden text-sm text-slate-700 sm:block" />
+                <FiChevronDown />
               </button>
             </Dropdown>
           )}

@@ -82,7 +82,6 @@ const DoctorsTable = () => {
       setDoctors(response.data.data);
 
     } catch (error) {
-      console.error("Error fetching doctors:", error);
 
       message.error("Unable to load doctors");
 

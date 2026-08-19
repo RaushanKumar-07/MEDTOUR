@@ -93,9 +93,8 @@ const AppoinmentTable = () => {
       setAppoinment(response.data.data);
 
     } catch (error) {
-      console.error("Error fetching doctors:", error);
 
-      message.error("Unable to load doctors");
+      message.error("Unable to load appointment");
 
     } finally {
       setLoading(false);
@@ -456,13 +455,6 @@ const AppoinmentTable = () => {
           </p>
 
         </div>
-
-
-        {/* <span className="text-sm text-gray-500">
-
-          {doctors.length} doctors
-
-        </span> */}
 
       </div>
 
