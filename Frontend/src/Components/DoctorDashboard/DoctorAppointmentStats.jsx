@@ -27,7 +27,7 @@ const DoctorAppointmentStats = ({ appointments = [] }) => {
       "
     >
 
-      {/* TOTAL APPOINTMENTS */}
+     
 
       <div
         className="
@@ -80,7 +80,7 @@ const DoctorAppointmentStats = ({ appointments = [] }) => {
       </div>
 
 
-      {/* UPCOMING APPOINTMENTS */}
+    
 
       <div
         className="

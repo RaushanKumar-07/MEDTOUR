@@ -76,12 +76,7 @@ const AppoinmentTable = () => {
   };
 
 
-  // =====================================================
-  // BACKEND FETCHING
-  // =====================================================
-  // Uncomment this section when backend is created.
-  // =====================================================
-
+  
 
   const fetchAppointment = async () => {
     try {
@@ -187,10 +182,7 @@ const AppoinmentTable = () => {
     },
 
 
-    // -----------------------------
-    // EMAIL
-    // -----------------------------
-
+    
     {
       title: "Doctor Name",
 
@@ -209,10 +201,7 @@ const AppoinmentTable = () => {
     },
 
 
-    // -----------------------------
-    // PHONE
-    // -----------------------------
-
+   
     {
       title: "Date",
 
@@ -230,9 +219,7 @@ const AppoinmentTable = () => {
     },
 
 
-    // -----------------------------
-    // SPECIALIZATION
-    // -----------------------------
+    
 
     {
       title: "Time",
@@ -250,10 +237,7 @@ const AppoinmentTable = () => {
     },
 
 
-    // -----------------------------
-    // HOSPITAL
-    // -----------------------------
-
+    
     {
       title: "Status",
 
@@ -267,9 +251,7 @@ const AppoinmentTable = () => {
     },
 
 
-    // -----------------------------
-    // MANAGE
-    // -----------------------------
+    
 
     {
       title: "Manage",
@@ -278,7 +260,7 @@ const AppoinmentTable = () => {
 
         <div className="flex gap-2">
 
-          {/* EDIT */}
+          
 
           <Button
             icon={<FaPen />}
@@ -288,7 +270,7 @@ const AppoinmentTable = () => {
           </Button>
 
 
-          {/* DELETE */}
+         
 
           <Popconfirm
             title="Delete this doctor?"
@@ -317,9 +299,7 @@ const AppoinmentTable = () => {
   ];
 
 
-  // =====================================================
-  // UI
-  // =====================================================
+  
 
   return (
 
@@ -434,8 +414,7 @@ const AppoinmentTable = () => {
         </Form>
       </Modal>
 
-      {/* ================= HEADER ================= */}
-
+      
       <div className="flex items-end justify-between mb-5">
 
         <div>
@@ -460,7 +439,7 @@ const AppoinmentTable = () => {
       </div>
 
 
-      {/* ================= TABLE ================= */}
+     
 
       <div
         className="

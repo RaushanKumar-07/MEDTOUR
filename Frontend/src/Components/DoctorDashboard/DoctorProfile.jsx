@@ -35,7 +35,7 @@ const DoctorProfile = () => {
       "
     >
 
-      {/* PROFILE HEADER */}
+      
 
       <div className="flex items-center gap-4">
 
@@ -95,7 +95,7 @@ const DoctorProfile = () => {
       </div>
 
 
-      {/* DOCTOR DETAILS */}
+      
 
       <div
         className="
@@ -111,8 +111,7 @@ const DoctorProfile = () => {
         "
       >
 
-        {/* EMAIL */}
-
+        
         <div className="flex items-center gap-3">
 
           <div
@@ -145,7 +144,7 @@ const DoctorProfile = () => {
         </div>
 
 
-        {/* PHONE */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -179,6 +178,57 @@ const DoctorProfile = () => {
         </div>
 
 
+<<<<<<< HEAD
+=======
+        
+
+        <div className="flex items-center gap-3">
+
+          <div
+            className="
+              w-10
+              h-10
+              rounded-lg
+              bg-gray-50
+              text-gray-500
+              flex
+              items-center
+              justify-center
+            "
+          >
+            <FaHospital />
+          </div>
+
+          <div>
+
+            <p className="text-xs text-gray-400">
+              Hospital
+            </p>
+
+            <p className="text-sm font-medium text-gray-700">
+              {doctor?.hospital || "Not assigned"}
+            </p>
+
+          </div>
+
+        </div>
+
+
+        
+
+        <div className="sm:col-span-2 lg:col-span-3">
+
+          <p className="text-xs text-gray-400">
+            Specialization
+          </p>
+
+          <p className="text-sm font-medium text-gray-700 mt-1">
+            {doctor?.specialization || "Not specified"}
+          </p>
+
+        </div>
+
+>>>>>>> 20ea5c0f800e44ccd749c345bf4d27c317417d20
       </div>
 
     </section>

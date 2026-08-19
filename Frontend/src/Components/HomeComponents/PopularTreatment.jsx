@@ -43,7 +43,7 @@ const PopularTreatment = () => {
   return (
     <section className=" mx-5 px-5 py-10 sm:px-8 lg:px-0 lg:py-12">
 
-      {/* Heading */}
+      
       <div className="mb-7 flex items-center justify-between">
 
         <h2 className="m-0 text-2xl font-bold tracking-[-0.5px] text-slate-900 sm:text-3xl">
@@ -51,7 +51,7 @@ const PopularTreatment = () => {
         </h2>
       </div>
 
-      {/* Cards */}
+      
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 border border-slate-300 p-5 rounded-2xl">
 
         {treatments.map((treatment) => (

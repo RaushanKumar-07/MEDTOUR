@@ -34,7 +34,7 @@ const HospitalCard = ({ hospital }) => {
         xl:gap-6
       "
     >
-      {/* Image */}
+      
       <div
         className="
           h-52
@@ -69,9 +69,9 @@ const HospitalCard = ({ hospital }) => {
         />
       </div>
 
-      {/* Hospital Information */}
+      
       <div className="min-w-0 flex-1">
-        {/* Name */}
+        
         <h2
           className="
             truncate
@@ -87,12 +87,12 @@ const HospitalCard = ({ hospital }) => {
           {hospital.name}
         </h2>
 
-        {/* Location */}
+        
         <p className="mt-1 text-sm text-slate-600 sm:text-base lg:text-lg">
           {hospital.location}
         </p>
 
-        {/* Rating */}
+        
         <div className="mt-2 flex flex-wrap items-center gap-2">
           <Rate
             disabled
@@ -106,14 +106,14 @@ const HospitalCard = ({ hospital }) => {
           </span>
         </div>
 
-        {/* Treatment */}
+        
         <p className="mt-3 text-slate-700 sm:text-base">
           <strong>Speciality:</strong> {hospital.treatment}
         </p>
-        {/* Hospital Details */}
+        
     <p className="mt-3">{hospital.hospitalDescription}</p>
       </div>
-      {/* Price + Button */}
+      
       <div
         className="
           flex
@@ -133,7 +133,7 @@ const HospitalCard = ({ hospital }) => {
           md:pt-0
         "
       >
-        {/* Price */}
+        
         <div className="text-left md:text-right">
           <p className="text-xs text-slate-500 sm:text-sm">From</p>
 

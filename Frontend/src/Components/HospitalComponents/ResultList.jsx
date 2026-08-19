@@ -6,16 +6,16 @@ import HospitalCard from "./HospitalCard";
 
 const ResultList = () => {
 
-  // Stores whatever user types in search bar
+  
   const [searchTerm, setSearchTerm] = useState("");
 
 
-  // Filter hospitals
+  
   const filteredHospitals = hospitals.filter((hospital) => {
 
     const search = searchTerm.toLowerCase().trim();
 
-    // If search box is empty, show all hospitals
+    
     if (!search) {
       return true;
     }
@@ -33,23 +33,20 @@ const ResultList = () => {
   return (
     <div className="px-5 flex w-full flex-col gap-4 sm:gap-5 ">
     <div className=" flex flex-col gap-3 justify-center items-center">
-      {/* Heading */}
-
+      
       <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-3">
         Explore Top Rated Hospitals
       </h1>
 
 
-      {/* Description */}
+      
 
       <h3 className="text-slate-800">
         Compare accredited healthcare institution and book your consultation
       </h3>
 
 
-      {/* =========================
-          SEARCH BAR
-      ========================= */}
+      
 
       <div className="
         flex
@@ -92,9 +89,7 @@ const ResultList = () => {
       </div>
 
       </div>
-      {/* =========================
-          HOSPITAL RESULTS
-      ========================= */}
+      
 
       {filteredHospitals.length > 0 ? (
 
@@ -109,8 +104,7 @@ const ResultList = () => {
 
       ) : (
 
-        /* No results */
-
+       
         <div className="text-center py-12">
 
           <h2 className="text-xl font-semibold text-slate-800">

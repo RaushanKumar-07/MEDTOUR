@@ -7,7 +7,7 @@ const Herosection = () => {
     <section className="overflow-hidden bg-white   border-b border-slate-200">
       <div className="mx-auto grid max-w-615 grid-cols-1 items-center px-6 py-10 lg:grid-cols-2">
 
-        {/* Left Content */}
+        
         <div className="relative px-6 z-20 py-8">
 
           <h1 className="text-[38px] font-bold leading-[1.05] tracking-[-2px] text-slate-950 sm:text-[48px] lg:text-[58px]">
@@ -29,7 +29,7 @@ const Herosection = () => {
 
         </div>
 
-        {/* Right Image */}
+       
         <div className="relative z-10  hidden h-130 lg:block">
 
           <div className="absolute insert-y-0 right-0  w-full overflow-hidden rounded-[45%]">

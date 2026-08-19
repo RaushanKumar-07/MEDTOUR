@@ -26,7 +26,7 @@ const TreatmentCard = ({
       "
     >
 
-      {/* Image */}
+      
       <div className="relative p-2">
 
         <img
@@ -44,7 +44,7 @@ const TreatmentCard = ({
 
       </div>
 
-      {/* Content */}
+      
       <div className="px-4 pb-5 pt-2">
 
         <h3 className="mb-2 text-lg font-bold text-slate-800">

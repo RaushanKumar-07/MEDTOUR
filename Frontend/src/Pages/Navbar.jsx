@@ -84,16 +84,30 @@ const Navbar = ({
     }
   };
 
- useEffect(() => {
-  const storedUser = localStorage.getItem("user");
+useEffect(() => {
+  const loadUser = () => {
+    const storedUser = localStorage.getItem("user");
 
-  if (storedUser) {
-    const parsedUser = JSON.parse(storedUser);
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    } else {
+      setUser(null);
+    }
+  };
 
-    setUser(parsedUser);
+ 
+  loadUser();
 
-    console.log(parsedUser);
-  }
+  
+  window.addEventListener("userLogin", loadUser);
+
+  
+  window.addEventListener("userLogout", loadUser);
+
+  return () => {
+    window.removeEventListener("userLogin", loadUser);
+    window.removeEventListener("userLogout", loadUser);
+  };
 }, []);
 
   return (

@@ -59,12 +59,12 @@ const DoctorDashboard = () => {
         "
       >
 
-        {/* DOCTOR PROFILE */}
+        
 
         <DoctorProfile/>
 
 
-        {/* PAGE HEADER */}
+       
 
         <div className="mb-6">
 
@@ -83,14 +83,13 @@ const DoctorDashboard = () => {
         </div>
 
 
-        {/* APPOINTMENT STATISTICS */}
+        
 
         <DoctorAppointmentStats
           appointments={appointments}
         />
 
 
-        {/* UPCOMING APPOINTMENTS */}
 
         <UpcomingAppointments
           appointments={appointments}

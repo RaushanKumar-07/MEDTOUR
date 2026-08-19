@@ -35,7 +35,6 @@ const PatientProfile = () => {
       "
     >
 
-      {/* PROFILE HEADER */}
 
       <div className="flex items-center gap-4">
 
@@ -93,7 +92,7 @@ const PatientProfile = () => {
       </div>
 
 
-      {/* LOGIN DETAILS */}
+      
 
       <div
         className="
@@ -108,7 +107,7 @@ const PatientProfile = () => {
         "
       >
 
-        {/* EMAIL */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -142,7 +141,7 @@ const PatientProfile = () => {
         </div>
 
 
-        {/* PHONE */}
+        
 
         <div className="flex items-center gap-3">
 

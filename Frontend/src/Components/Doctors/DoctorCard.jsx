@@ -35,7 +35,7 @@ const DoctorCard = ({ doctor }) => {
       "
     >
 
-      {/* DOCTOR HEADER */}
+      
 
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
 
@@ -81,7 +81,7 @@ const DoctorCard = ({ doctor }) => {
       </div>
 
 
-      {/* DOCTOR DETAILS */}
+      
 
       <div
         className="
@@ -96,7 +96,7 @@ const DoctorCard = ({ doctor }) => {
         "
       >
 
-        {/* EMAIL */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -117,7 +117,7 @@ const DoctorCard = ({ doctor }) => {
         </div>
 
 
-        {/* PHONE */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -138,7 +138,7 @@ const DoctorCard = ({ doctor }) => {
         </div>
 
 
-        {/* HOSPITAL */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -159,7 +159,7 @@ const DoctorCard = ({ doctor }) => {
         </div>
 
 
-        {/* EXPERIENCE */}
+        
 
         <div className="flex items-center gap-3">
 
@@ -184,8 +184,7 @@ const DoctorCard = ({ doctor }) => {
       </div>
 
 
-      {/* BOOK APPOINTMENT BUTTON */}
-
+     
       <div className="mt-6 pt-5 border-t border-gray-100">
 
         <Button
